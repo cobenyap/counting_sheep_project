@@ -173,7 +173,7 @@ body {
     width: 900px;
     height: 200px;
     z-index: 1;
-    background: url("assets/fence2.png") no-repeat center/contain;
+    background: url("assets/fence.png") no-repeat center/contain;
 }
 
 .sheep {
@@ -196,7 +196,7 @@ body {
 /* HERO SECTION Responsive */
 @media (max-width: 768px) {
     .fence {
-        background-image: url("assets/fence.png");
+        background-image: url("assets/fence_mobile.png");
         width: 300px;
         left: -150px;
         top: -50px;
