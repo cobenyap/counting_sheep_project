@@ -70,25 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ---------- Post card clicks ----------
-    const postCards = document.querySelectorAll(".post-card");
-    if (postCards.length > 0) {
-        postCards.forEach(card => {
-            card.addEventListener("click", function () {
-                const type = this.dataset.type;
-                const link = this.dataset.link;
-                const brochure = this.dataset.brochure;
-                const title = this.querySelector("h3")?.textContent || "";
-                const text = this.querySelector("p")?.textContent || "";
 
-                if (type === "link" && link) {
-                    window.open(link, "_blank");
-                } else if (type === "brochure" && brochure) {
-                    openBrochureModal(brochure, title, text);
-                }
-            });
-        });
-    }
 
     // ---------- Brochure Modal ----------
     function openBrochureModal(url, title = "", text = "") {
@@ -181,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-
+    // ---------- Post card clicks ----------
     function attachPostCardListeners() {
         const postCards = document.querySelectorAll(".post-card");
         postCards.forEach(card => {
@@ -200,6 +182,8 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    attachPostCardListeners();
 
     const searchInput = document.getElementById("search-posts");
     const dateSelect = document.getElementById("filter-date");
@@ -227,8 +211,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
         }
 
-        // Live search
-        searchInput.addEventListener("input", fetchPosts);
+        // Live search with delay
+        let searchTimeout;
+        searchInput.addEventListener("input", () => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(fetchPosts, 500);
+        });
         dateSelect.addEventListener("change", fetchPosts);
 
         // Initial load

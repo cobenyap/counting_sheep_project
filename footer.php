@@ -7,16 +7,21 @@
 
         <!-- Right: Social media icons -->
         <div class="footer-social">
-            <a href="https://www.linkedin.com/company/counting-sheep-project" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/counting-sheep-project" 
+               target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" 
+               title="Follow us on LinkedIn">
                 <span class="dashicons dashicons-linkedin" aria-hidden="true"></span>
             </a>
-            <a href="https://www.instagram.com/countingsheepproject/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a href="https://www.instagram.com/countingsheepproject/" 
+               target="_blank" rel="noopener noreferrer" aria-label="Instagram" 
+               title="Follow us on Instagram">
                 <span class="dashicons dashicons-instagram" aria-hidden="true"></span>
             </a>
-            <a href="https://linktr.ee/countingsheep.sg" target="_blank" rel="noopener noreferrer" aria-label="Linktree">
+            <a href="https://linktr.ee/countingsheep.sg" 
+               target="_blank" rel="noopener noreferrer" aria-label="Linktree" 
+               title="Visit our Linktree">
                 <span class="dashicons dashicons-admin-links" aria-hidden="true"></span>
             </a>
-            <button class="contact-us-btn" aria-haspopup="dialog" aria-controls="dynamic-form-modal">Contact Us</button>
         </div>
     </div>
 
@@ -24,7 +29,7 @@
     <div id="easter-egg-popup" role="dialog" aria-modal="true" aria-labelledby="easter-egg-title" hidden>
         <h3 id="easter-egg-title">👋 Hello there</h3>
         <p>I’m Coben Yap and I developed this site.</p>
-        <a href="https://www.linkedin.com/in/cobenyap/" target="_blank" rel="noopener noreferrer">View my LinkedIn</a>
+        <a href="https://www.linkedin.com/in/cobenyap/" target="_blank" rel="noopener noreferrer" title="View Coben Yap's LinkedIn">View my LinkedIn</a>
         <button id="close-easter-egg" aria-label="Close Easter Egg">✖</button>
     </div>
 </footer>

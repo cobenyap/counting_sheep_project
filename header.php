@@ -2,56 +2,63 @@
 <html <?php language_attributes(); ?>>
 
 <head>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="<?php echo is_singular() ? 'article' : 'website'; ?>" />
+    <meta property="og:title" content="<?php echo wp_get_document_title(); ?>" />
+    <meta property="og:description" content="<?php echo is_singular() ? esc_attr(wp_strip_all_tags(get_the_excerpt())) : esc_attr(get_bloginfo('description')); ?>" />
+    <meta property="og:url" content="<?php echo esc_url(get_permalink()); ?>" />
+    <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
+
+    <?php if (is_singular() && has_post_thumbnail()) : ?>
+        <meta property="og:image" content="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>" />
+    <?php else : ?>
+        <meta property="og:image" content="<?php echo esc_url(get_template_directory_uri() . '/assets/logo.png'); ?>" />
+    <?php endif; ?>
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="<?php echo wp_get_document_title(); ?>" />
+    <meta name="twitter:description" content="<?php echo is_singular() ? esc_attr(wp_strip_all_tags(get_the_excerpt())) : esc_attr(get_bloginfo('description')); ?>" />
+
+    <?php if (is_singular() && has_post_thumbnail()) : ?>
+        <meta name="twitter:image" content="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>" />
+    <?php else : ?>
+        <meta name="twitter:image" content="<?php echo esc_url(get_template_directory_uri() . '/assets/logo.png'); ?>" />
+    <?php endif; ?>
+
+
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO: Dynamic title -->
-    <title>
-        <?php
-        if (is_front_page()) {
-            bloginfo('name');
-            echo ' | ';
-            bloginfo('description');
-        } elseif (is_single() || is_page()) {
-            the_title();
-            echo ' | ';
-            bloginfo('name');
-        } elseif (is_archive()) {
-            wp_title('');
-            echo ' | ';
-            bloginfo('name');
-        } else {
-            bloginfo('name');
-        }
-        ?>
-    </title>
-
     <!-- SEO: Meta description -->
-    <?php if (is_single() || is_page()) : ?>
-        <meta name="description" content="<?php echo esc_attr(get_the_excerpt()); ?>">
+    <?php if (is_singular()) : ?>
+        <meta name="description" content="<?php echo esc_attr(wp_strip_all_tags(get_the_excerpt(), true)); ?>">
     <?php else : ?>
-        <meta name="description" content="<?php bloginfo('description'); ?>">
+        <meta name="description" content="<?php echo esc_attr(get_bloginfo('description')); ?>">
     <?php endif; ?>
 
     <!-- SEO: Canonical URL -->
-    <link rel="canonical" href="<?php echo esc_url(get_permalink()); ?>">
+    <link rel="canonical" href="<?php echo esc_url(wp_get_canonical_url()); ?>">
+
+    <!-- Favicons (recommended for SEO + branding) -->
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/favicon.ico" type="image/x-icon">
 
     <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-
     <header class="navbar" role="banner">
         <!-- Left logo/icon -->
         <div class="navbar-logo">
-            <a href="<?php echo home_url('/'); ?>">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/logo.png" alt="<?php bloginfo('name'); ?> Logo">
+            <a href="<?php echo esc_url(home_url('/')); ?>">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/logo.png"
+                    alt="<?php echo esc_attr(get_bloginfo('name')); ?> Logo">
             </a>
         </div>
 
         <!-- Middle navigation -->
         <nav class="navbar-links" role="navigation" aria-label="Main Navigation">
-            <a href="<?php echo home_url('/'); ?>">Home</a>
+            <a href="<?php echo esc_url(home_url('/')); ?>">Home</a>
             <a href="https://shopee.sg/countingsheepproject" target="_blank" rel="noopener noreferrer">Shop</a>
         </nav>
 

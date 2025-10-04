@@ -475,6 +475,18 @@ body {
     transform: scale(1.2);
 }
 
+.visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* === input form modal Styles === */
 /* Modal Overlay */
 #dynamic-form-modal {
@@ -746,17 +758,18 @@ body {
     margin: auto;
 }
 
-.error-content h1 {
+.error-hero h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     color: #fff;
     text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
 }
 
-.error-content p {
+.error-hero p {
     font-size: 1.2rem;
     color: #f0f0f0;
     margin-bottom: 2rem;
+    color:white;
 }
 
 .error-btn {
@@ -785,7 +798,7 @@ body {
 }
 
 .error-graphic img {
-    max-width: 150px;
+    max-width: 200px;
     margin: 0 0.5rem;
     border-radius: 12px;
 }
