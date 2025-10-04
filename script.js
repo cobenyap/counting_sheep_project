@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ---------- Scroll-triggered sheep jump ----------
     const sheep = document.querySelector(".sheep");
-    
+
     // Timeline distances (scroll px for each phase)
     const runUpScroll = 50;   // scroll px for run-up
     const jumpScroll = 120;    // scroll px for jump
@@ -47,12 +47,15 @@ document.addEventListener("DOMContentLoaded", () => {
             // Apply transform
             sheep.style.transform = `translateX(${x}px) translateY(${-y}px)`;
 
-            // Handle z-index (in front when jumping, behind when landed)
-            // + golden filter
-            if (scroll > runUpScroll + jumpScroll * 0.95) {
-                sheep.style.zIndex = 1; // behind fence
-                sheep.classList.add("happy"); // glow
-            } else {
+            // Handle going behind fence
+            if (scroll > runUpScroll + jumpScroll * 0.8) {
+                sheep.style.zIndex = 1;
+                // golden filter
+                if (scroll > runUpScroll + jumpScroll * 0.95) {
+                    sheep.classList.add("happy"); // glow
+                }
+            }
+            else {
                 sheep.style.zIndex = 3; // in front
                 sheep.classList.remove("happy"); // remove glow
             }
