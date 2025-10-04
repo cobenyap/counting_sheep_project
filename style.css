@@ -10,6 +10,19 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: countingsheep
 */
 
+:root {
+    --theme-primary: #221F3C;
+    --theme-secondary: #B2A4D4;
+    --theme-tetiary: #6C68A0;
+    --theme-accent: #F7E5C8;
+    --theme-contrast: #DEDFFA;
+    --theme-glass: rgba(255, 255, 255, 0.2);
+    --theme-weak-shadow: rgba(0, 0, 0, 0.3);
+    --theme-medium-shadow: rgba(0, 0, 0, 0.5);
+    --theme-strong-shadow: rgba(0, 0, 0, 0.8);
+}
+
+
 /* === Navbar Styles === */
 .navbar {
     position: sticky;
@@ -22,9 +35,9 @@ Text Domain: countingsheep
     padding: 0.5rem 1rem;
 
     /* Glass effect */
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    background: var(--theme-glass);
+    backdrop-filter: blur(50px);
+    border-bottom: 1px solid var(--theme-glass);
 }
 
 .navbar-logo img {
@@ -47,7 +60,7 @@ Text Domain: countingsheep
     border-radius: 15px;
     transition: all 0.3s ease;
     /* transition for all properties */
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 4px var(--theme-strong-shadow);
     box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     /* initial no shadow */
 }
@@ -55,11 +68,10 @@ Text Domain: countingsheep
 /* Hover effect */
 .navbar-links a:hover {
     background: rgba(255, 255, 255, 0.25);
-    color: #ffd700;
+    color: var(--theme-accent);
     /* gold accent on hover */
-    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.9);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    /* adds shadow */
+    text-shadow: 1px 1px 6px var(--theme-strong-shadow);
+    box-shadow: 0 4px 12px var(--theme-weak-shadow);
     transform: translateY(-3px);
     /* slight lift */
 }
@@ -70,13 +82,16 @@ Text Domain: countingsheep
     font-size: 1.8rem;
     cursor: pointer;
     border-radius: 8px;
+    background-color: transparent;
+    border: none;
+    color: white;
 }
 
 /* === Navbar Mobile Responsive === */
 @media (max-width: 768px) {
     .navbar-links {
         position: absolute;
-        top: 60px;
+        top: 70px;
         left: 0;
         right: 0;
         flex-direction: column;
@@ -92,7 +107,7 @@ Text Domain: countingsheep
         border-radius: 0 0 16px 16px;
 
         /* Subtle shadow so it feels layered */
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 8px 20px var(--theme-weak-shadow);
         /* hidden until toggled */
         display: none;
         z-index: 1000;
@@ -105,7 +120,7 @@ Text Domain: countingsheep
 
     .navbar-links a {
         color: #fff;
-        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+        text-shadow: 1px 1px 4px var(--theme-strong-shadow);
         font-size: 1.2rem;
         width: 100%;
         text-align: center;
@@ -115,7 +130,7 @@ Text Domain: countingsheep
     }
 
     .navbar-links a:hover {
-        background: rgba(255, 255, 255, 0.25);
+        background: var(--theme-glass)
     }
 
     .navbar-toggle {
@@ -153,7 +168,7 @@ body {
 
 .hero-content {
     z-index: 2;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 2px 6px var(--theme-strong-shadow);
 }
 
 .hero-content h1 {
@@ -218,28 +233,28 @@ body {
 .latest-header h2 {
     margin: 0;
     font-size: 2rem;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 4px var(--theme-strong-shadow);
 }
 
 /* View All Button */
 .view-all-btn {
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--theme-glass);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid var(--theme-glass);
     padding: 0.6rem 1.2rem;
     border-radius: 12px;
     color: #fff;
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px var(--theme-weak-shadow);
 }
 
 .view-all-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: var(--theme-glass);
     transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-    color: #ffd700;
+    box-shadow: 0 6px 16px var(--theme-strong-shadow);
+    color: var(--theme-accent);
 }
 
 
@@ -257,7 +272,7 @@ body {
     font-size: 2rem;
     color: #fff;
     /* Add text shadow for visibility */
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 4px var(--theme-strong-shadow);
 }
 
 .posts-container {
@@ -280,7 +295,7 @@ body {
 
 .post-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 10px 25px var(--theme-strong-shadow);
     cursor: pointer;
 }
 
@@ -295,7 +310,7 @@ body {
 
 .post-card h3 {
     color: white;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 4px var(--theme-strong-shadow);
     margin-top: 1rem;
     margin-bottom: 0;
     font-size: 1.4rem;
@@ -304,7 +319,7 @@ body {
 
 .post-card p {
     color: white;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 4px var(--theme-weak-shadow);
     font-size: 0.9rem;
     margin-top: 0.7rem;
 }
@@ -333,7 +348,7 @@ body {
     width: 100vw;
     height: 100vh;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: var(--theme-strong-shadow);
     justify-content: center;
     align-items: center;
 }
@@ -348,7 +363,7 @@ body {
     width: 90%;
     max-height: 80%;
     overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 20px var(--theme-medium-shadow);
     position: relative;
 }
 
@@ -444,7 +459,7 @@ body {
 .sponsors h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 4px var(--theme-strong-shadow);
 }
 
 .sponsors-container {
@@ -459,7 +474,7 @@ body {
     width: 150px;
     /* fixed size for logos */
     transition: transform 0.3s;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 15px;
     padding: 10px;
 }
@@ -496,7 +511,7 @@ body {
     left: 0;
     top: 0;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--theme-strong-shadow);
     width: 100vw;
     height: 100vh;
     z-index: 9999;
@@ -549,7 +564,7 @@ body {
 
 /* Submit Button */
 #dynamic-form button[type="submit"] {
-    background-color: black;
+    background-color: var(--theme-primary);
     color: #fff;
     padding: 0.8rem 2rem;
     border: none;
@@ -610,7 +625,7 @@ body {
     -webkit-backdrop-filter: blur(10px);
 
     border-top: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -4px 12px var(--theme-weak-shadow);
     color: #fff;
 }
 
@@ -626,7 +641,7 @@ body {
 
 .footer-left {
     font-size: 1rem;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 4px var(--theme-strong-shadow);
 }
 
 .footer-nav {
@@ -661,22 +676,22 @@ body {
     text-decoration: none;
     margin-left: 0.75rem;
     cursor: pointer;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 3px var(--theme-strong-shadow);
 }
 
 /* Hover Effect */
 .footer-social a:hover {
     background: rgba(255, 255, 255, 0.4);
-    color: #ffd700;
+    color: var(--theme-accent);
     /* gold accent */
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px var(--theme-weak-shadow);
 }
 
 /* Active / Click Effect */
 .footer-social a:active {
     transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px var(--theme-weak-shadow);
 }
 
 /* Contact Us Button */
@@ -693,23 +708,23 @@ body {
     cursor: pointer;
     font-size: 1rem;
     transition: all 0.3s ease;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 3px var(--theme-strong-shadow);
     margin-left: 0.75rem;
 }
 
 /* Hover Effect */
 .contact-us-btn:hover {
     background: rgba(255, 255, 255, 0.4);
-    color: #ffd700;
+    color: var(--theme-accent);
     /* gold accent */
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px var(--theme-weak-shadow);
 }
 
 /* Active / Click Effect */
 .contact-us-btn:active {
     transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px var(--theme-weak-shadow);
 }
 
 /* === Footer Mobile Responsive === */
@@ -754,7 +769,7 @@ body {
     -webkit-backdrop-filter: blur(12px);
     border-radius: 16px;
     padding: 3rem 2rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 20px var(--theme-weak-shadow);
     max-width: 700px;
     margin: auto;
 }
@@ -763,7 +778,7 @@ body {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     color: #fff;
-    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 6px var(--theme-strong-shadow);
 }
 
 .error-hero p {
@@ -782,16 +797,16 @@ body {
     background: rgba(255, 255, 255, 0.25);
     border-radius: 12px;
     text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px var(--theme-weak-shadow);
     transition: all 0.3s ease;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 4px var(--theme-strong-shadow);
 }
 
 .error-btn:hover {
     background: rgba(255, 255, 255, 0.35);
-    color: #ffd700;
+    color: var(--theme-accent);
     transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 6px 16px var(--theme-medium-shadow);
 }
 
 .error-graphic {
@@ -816,7 +831,7 @@ body {
     font-size: 2rem;
     color: #fff;
     /* Add text shadow for visibility */
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 4px var(--theme-strong-shadow);
 }
 
 .posts-filter-form {
@@ -865,7 +880,7 @@ body {
     border: 2px solid #333;
     padding: 1rem 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px var(--theme-weak-shadow);
     z-index: 9999;
     display: none;
     max-width: 250px;
