@@ -205,32 +205,35 @@ document.addEventListener("DOMContentLoaded", () => {
     const dateSelect = document.getElementById("filter-date");
     const results = document.getElementById("posts-results");
 
-    function fetchPosts() {
-        const search = searchInput.value;
-        const date = dateSelect.value;
+    // ---------- all posts page ----------
+    if (searchInput && dateSelect && results) {
+        function fetchPosts() {
+            const search = searchInput.value;
+            const date = dateSelect.value;
 
-        const formData = new FormData();
-        formData.append("action", "cs_filter_posts");
-        formData.append("search", search);
-        formData.append("date", date);
+            const formData = new FormData();
+            formData.append("action", "cs_filter_posts");
+            formData.append("search", search);
+            formData.append("date", date);
 
-        fetch(cs_ajax.ajax_url, {
-            method: "POST",
-            body: formData
-        })
-            .then(res => res.text())
-            .then(data => {
-                results.innerHTML = data;
-                attachPostCardListeners(); // rebind new cards
-            });
+            fetch(cs_ajax.ajax_url, {
+                method: "POST",
+                body: formData
+            })
+                .then(res => res.text())
+                .then(data => {
+                    results.innerHTML = data;
+                    attachPostCardListeners(); // rebind new cards
+                });
+        }
+
+        // Live search
+        searchInput.addEventListener("input", fetchPosts);
+        dateSelect.addEventListener("change", fetchPosts);
+
+        // Initial load
+        fetchPosts();
     }
-
-    // Live search
-    searchInput.addEventListener("input", fetchPosts);
-    dateSelect.addEventListener("change", fetchPosts);
-
-    // Initial load
-    fetchPosts();
 
     // ---------- Easter Egg ----------
     const easterBtn = document.querySelector(".footer-left p"); // copyright trigger
