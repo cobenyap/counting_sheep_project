@@ -83,7 +83,7 @@ function cs_ajax_filter_posts()
 <?php
         endwhile;
     else :
-        echo "<p>No posts found.</p>";
+        echo "<h2>No posts found.</h2>";
     endif;
 
 
