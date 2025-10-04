@@ -94,7 +94,7 @@ function cs_ajax_filter_posts()
             $link     = get_post_meta(get_the_ID(), 'post_link', true);
             $thumbnail = has_post_thumbnail()
                 ? get_the_post_thumbnail_url(get_the_ID(), 'medium')
-                : get_template_directory_uri() . '/assets/logo.png';
+                : get_template_directory_uri() . '/assets/logo_icon.png';
 ?>
             <article class="post-card"
                 data-type="<?php echo esc_attr($type); ?>"
@@ -133,7 +133,7 @@ function mytheme_add_schema()
             "@type": "Organization",
             "name": "Counting Sheep Project",
             "url": "<?php echo esc_url(home_url('/')); ?>",
-            "logo": "<?php echo esc_url(get_template_directory_uri() . '/assets/logo.png'); ?>",
+            "logo": "<?php echo esc_url(get_template_directory_uri() . '/assets/logo_with_text.png'); ?>",
             "sameAs": [
                 "https://www.linkedin.com/company/counting-sheep-project",
                 "https://www.instagram.com/countingsheepproject/",

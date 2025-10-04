@@ -12,7 +12,7 @@
     <?php if (is_singular() && has_post_thumbnail()) : ?>
         <meta property="og:image" content="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>" />
     <?php else : ?>
-        <meta property="og:image" content="<?php echo esc_url(get_template_directory_uri() . '/assets/logo.png'); ?>" />
+        <meta property="og:image" content="<?php echo esc_url(get_template_directory_uri() . '/assets/logo_with_text.png'); ?>" />
     <?php endif; ?>
 
     <!-- Twitter -->
@@ -23,7 +23,7 @@
     <?php if (is_singular() && has_post_thumbnail()) : ?>
         <meta name="twitter:image" content="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'large')); ?>" />
     <?php else : ?>
-        <meta name="twitter:image" content="<?php echo esc_url(get_template_directory_uri() . '/assets/logo.png'); ?>" />
+        <meta name="twitter:image" content="<?php echo esc_url(get_template_directory_uri() . '/assets/logo_with_text.png'); ?>" />
     <?php endif; ?>
 
 
@@ -51,7 +51,7 @@
         <!-- Left logo/icon -->
         <div class="navbar-logo">
             <a href="<?php echo esc_url(home_url('/')); ?>">
-                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/logo.png"
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/logo_with_text.png"
                     alt="<?php echo esc_attr(get_bloginfo('name')); ?> Logo">
             </a>
         </div>

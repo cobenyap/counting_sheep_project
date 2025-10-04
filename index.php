@@ -37,7 +37,7 @@
                     $link     = get_post_meta(get_the_ID(), 'post_link', true);
                     $thumbnail = has_post_thumbnail()
                         ? get_the_post_thumbnail_url(get_the_ID(), 'medium')
-                        : get_template_directory_uri() . '/assets/logo.png';
+                        : get_template_directory_uri() . '/assets/logo_icon.png';
             ?>
                     <article class="post-card"
                         data-type="<?php echo esc_attr($type); ?>"
