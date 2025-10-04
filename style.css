@@ -1,12 +1,13 @@
 /*
-Theme Name: Custom Theme for Counting Sheep Project
-Theme URI: none
-Author: Coben
+Theme Name: Counting Sheep Project
+Theme URI: https://countingsheepproject.com
+Author: Coben Yap
 Author URI: https://www.linkedin.com/in/cobenyap/
 Description: A custom theme built from scratch specifically for Counting Sheep Project
 Version: 1.0
-License: none
-Text Domain: none
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: countingsheep
 */
 
 /* === Navbar Styles === */
@@ -769,7 +770,7 @@ body {
     font-size: 1.2rem;
     color: #f0f0f0;
     margin-bottom: 2rem;
-    color:white;
+    color: white;
 }
 
 .error-btn {
