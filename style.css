@@ -129,7 +129,7 @@ Text Domain: countingsheep
 }
 
 body.home {
-    background: url('assets/nightFarm3.png') no-repeat center center fixed;
+    background: url('assets/landing_background.png') no-repeat center center fixed;
     background-size: cover;
 }
 
