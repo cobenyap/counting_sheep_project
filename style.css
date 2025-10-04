@@ -168,17 +168,18 @@ body {
 
 .fence {
     position: absolute;
-    z-index: 1;
-    top: 20px;
+    top: -50px;
     left: -450px;
     width: 900px;
-    max-height: auto;
+    height: 200px;
+    z-index: 1;
+    background: url("assets/fence2.png") no-repeat center/contain;
 }
 
 .sheep {
     position: absolute;
-    top: -90px;
-    left: -350px;
+    top: -120px;
+    left: -370px;
     max-width: 300px;
     z-index: 3;
     max-height: auto;
@@ -195,9 +196,10 @@ body {
 /* HERO SECTION Responsive */
 @media (max-width: 768px) {
     .fence {
-        top: 100px;
-        left: -180px;
-        max-width: 350px;
+        background-image: url("assets/fence.png");
+        width: 300px;
+        left: -150px;
+        top: -50px;
     }
 }
 

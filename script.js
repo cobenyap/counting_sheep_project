@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const sheep = document.querySelector(".sheep");
     
     // Timeline distances (scroll px for each phase)
-    const runUpScroll = 20;   // scroll px for run-up
-    const jumpScroll = 70;    // scroll px for jump
-    const runOutScroll = 150;  // scroll px for run-out
+    const runUpScroll = 50;   // scroll px for run-up
+    const jumpScroll = 120;    // scroll px for jump
+    const runOutScroll = 200;  // scroll px for run-out
 
     // Geometry
     const jumpHeight = 150;    // peak height

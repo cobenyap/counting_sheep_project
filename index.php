@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <main>
+
     <body class="home">
         <!-- Hero Section -->
         <section class="hero" role="banner">
@@ -12,7 +13,7 @@
             <!-- Sheep + Fence -->
             <div class="hero-animation" aria-hidden="true">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/sheep.gif" alt="Animated sheep jumping" class="sheep">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/fence2.png" alt="Fence" class="fence">
+                <div class="fence"></div>
             </div>
         </section>
 
