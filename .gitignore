@@ -1,0 +1,12 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Node / Build
+node_modules/
+dist/
+
+# WordPress
+*.sql
+wp-config.php
