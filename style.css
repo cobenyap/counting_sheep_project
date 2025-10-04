@@ -16,7 +16,9 @@ Text Domain: countingsheep
     --theme-tetiary: #6C68A0;
     --theme-accent: #F7E5C8;
     --theme-contrast: #DEDFFA;
+    --theme-gradient: linear-gradient(135deg, var(--theme-tetiary), var(--theme-primary));
     --theme-glass: rgba(255, 255, 255, 0.2);
+    --theme-glass-hover: rgba(200, 200, 200, 0.2);
     --theme-weak-shadow: rgba(0, 0, 0, 0.3);
     --theme-medium-shadow: rgba(0, 0, 0, 0.5);
     --theme-strong-shadow: rgba(0, 0, 0, 0.8);
@@ -67,7 +69,7 @@ Text Domain: countingsheep
 
 /* Hover effect */
 .navbar-links a:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: var(--theme-glass-hover);
     color: var(--theme-accent);
     /* gold accent on hover */
     text-shadow: 1px 1px 6px var(--theme-strong-shadow);
@@ -130,7 +132,7 @@ Text Domain: countingsheep
     }
 
     .navbar-links a:hover {
-        background: var(--theme-glass)
+        background: var(--theme-glass-hover);
     }
 
     .navbar-toggle {
@@ -149,7 +151,7 @@ body.home {
 }
 
 body {
-    background: linear-gradient(135deg, #26283B, #363950, #494C66);
+    background: var(--theme-gradient);
     font-family: 'Nunito', sans-serif;
 }
 
@@ -251,7 +253,7 @@ body {
 }
 
 .view-all-btn:hover {
-    background: var(--theme-glass);
+    background: var(--theme-glass-hover);
     transform: translateY(-2px) scale(1.05);
     box-shadow: 0 6px 16px var(--theme-strong-shadow);
     color: var(--theme-accent);
@@ -303,7 +305,7 @@ body {
     width: 100%;
     height: 200px;
     object-fit: contain;
-    background: linear-gradient(135deg, #494C66, #363950, #26283B);
+    background: var(--theme-gradient);
     border-radius: 8px;
     max-height: 200px;
 }
@@ -388,7 +390,7 @@ body {
     flex: 1;
     padding: 1.5rem;
     overflow-y: auto;
-    background: linear-gradient(135deg, #26283B, #363950, #494C66);
+    background: var(--theme-gradient);
 }
 
 .brochure-right h3 {
@@ -574,7 +576,7 @@ body {
 }
 
 #dynamic-form button[type="submit"]:hover {
-    background-color: #444;
+    background-color: var(--theme-tetiary);
 }
 
 /* Form Message */
@@ -611,16 +613,13 @@ body {
 }
 
 
-
-
-
 /* === Footer Styles === */
 .site-footer {
     margin-top: 2rem;
     padding: 1.5rem 1rem;
 
     /* Glassmorphism background */
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--theme-glass);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 
@@ -664,7 +663,7 @@ body {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.25);
+    background: var(--theme-glass);
     /* semi-transparent glass effect */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -681,7 +680,7 @@ body {
 
 /* Hover Effect */
 .footer-social a:hover {
-    background: rgba(255, 255, 255, 0.4);
+    background: var(--theme-glass-hover);
     color: var(--theme-accent);
     /* gold accent */
     transform: translateY(-2px);
@@ -696,7 +695,7 @@ body {
 
 /* Contact Us Button */
 .contact-us-btn {
-    background: rgba(255, 255, 255, 0.25);
+    background: var(--theme-glass);
     /* semi-transparent glass effect */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -714,7 +713,7 @@ body {
 
 /* Hover Effect */
 .contact-us-btn:hover {
-    background: rgba(255, 255, 255, 0.4);
+    background: var(--theme-glass-hover);
     color: var(--theme-accent);
     /* gold accent */
     transform: translateY(-2px);
@@ -764,7 +763,7 @@ body {
 }
 
 .error-hero {
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--theme-glass);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 16px;
@@ -794,7 +793,7 @@ body {
     font-size: 1.1rem;
     font-weight: 600;
     color: #fff;
-    background: rgba(255, 255, 255, 0.25);
+    background: var(--theme-glass);
     border-radius: 12px;
     text-decoration: none;
     box-shadow: 0 4px 12px var(--theme-weak-shadow);
@@ -803,7 +802,7 @@ body {
 }
 
 .error-btn:hover {
-    background: rgba(255, 255, 255, 0.35);
+    background: var(--theme-glass-hover);
     color: var(--theme-accent);
     transform: translateY(-3px);
     box-shadow: 0 6px 16px var(--theme-medium-shadow);
@@ -847,7 +846,7 @@ body {
     padding: 0.5rem 1rem;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--theme-glass);
     color: #fff;
 }
 
@@ -860,7 +859,7 @@ body {
     padding: 0.5rem 1rem;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--theme-glass);
     color: #fff;
     appearance: none;
 }
