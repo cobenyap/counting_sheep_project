@@ -6,50 +6,39 @@ get_header();
 ?>
 
 <main class="all-posts-page" role="main">
-
+    
     <section class="all-posts">
         <header>
             <h1>All Blog Posts</h1>
         </header>
 
-        <div class="posts-container">
-            <?php
-            $all_posts = new WP_Query(array(
-                'posts_per_page' => -1, // all posts
-                'post_status'    => 'publish',
-            ));
+        <div class="posts-filter-form">
+            <input type="text" id="search-posts" placeholder="Search posts...">
 
-            if ($all_posts->have_posts()) :
-                while ($all_posts->have_posts()) : $all_posts->the_post();
-                    $type = get_post_meta(get_the_ID(), 'post_type', true);
-                    $brochure = wp_get_attachment_url(get_post_meta(get_the_ID(), 'brochure_image', true));
-                    $link = get_post_meta(get_the_ID(), 'post_link', true);
-                    $thumbnail = has_post_thumbnail()
-                        ? get_the_post_thumbnail_url(get_the_ID(), 'medium')
-                        : get_template_directory_uri() . '/assets/logo.png';
-            ?>
-                    <article class="post-card"
-                        data-type="<?php echo esc_attr($type); ?>"
-                        data-link="<?php echo esc_url($link); ?>"
-                        data-brochure="<?php echo esc_url($brochure); ?>"
-                        itemscope itemtype="https://schema.org/BlogPosting">
-
-
-                        <img src="<?php echo esc_url($thumbnail); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" itemprop="image">
-
-
-                        <h3 itemprop="headline">
-                            <?php the_title(); ?>
-                        </h3>
-
-                        <p itemprop="description"><?php echo wp_trim_words(get_the_excerpt(), 30, '...'); ?></p>
-                    </article>
-                <?php endwhile;
-                wp_reset_postdata();
-            else : ?>
-                <h2>No posts found.</h2>
-            <?php endif; ?>
+            <select id="filter-date">
+                <option value="">All Dates</option>
+                <?php
+                global $wpdb;
+                $months = $wpdb->get_results("
+            SELECT DISTINCT YEAR(post_date) AS year, MONTH(post_date) AS month 
+            FROM $wpdb->posts 
+            WHERE post_type='post' AND post_status='publish' 
+            ORDER BY post_date DESC
+        ");
+                foreach ($months as $m) :
+                    $month = zeroise($m->month, 2);
+                    $value = $m->year . $month;
+                    $label = date("F Y", mktime(0, 0, 0, $m->month, 1, $m->year));
+                    echo "<option value='$value'>$label</option>";
+                endforeach;
+                ?>
+            </select>
         </div>
+
+        <div class="posts-container" id="posts-results">
+            <!-- Results will be injected here -->
+        </div>
+
     </section>
 
     <!-- Brochure Modal -->
