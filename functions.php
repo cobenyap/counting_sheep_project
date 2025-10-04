@@ -67,6 +67,13 @@ function mytheme_enqueue_assets()
 }
 add_action('wp_enqueue_scripts', 'mytheme_enqueue_assets');
 
+// Enable Dashicons on frontend
+function mytheme_load_dashicons()
+{
+    wp_enqueue_style('dashicons');
+}
+add_action('wp_enqueue_scripts', 'mytheme_load_dashicons');
+
 
 // === AJAX Filter Posts ===
 function cs_ajax_filter_posts()
