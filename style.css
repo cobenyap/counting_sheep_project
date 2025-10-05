@@ -349,16 +349,17 @@ body {
 #brochure-modal {
     display: none;
     position: fixed;
+    inset: 0;
     z-index: 2000;
-    left: 0;
-    top: 0;
     width: 100vw;
     height: 100vh;
-    overflow: auto;
     background-color: var(--theme-strong-shadow);
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    overscroll-behavior: contain;
 }
+
 
 /* Modal content wrapper */
 #brochure-modal .brochure-modal {

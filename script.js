@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    let scrollPosition = 0;
     // ---------- Brochure Modal ----------
     function openBrochureModal(url, title = "", text = "") {
         const modal = document.getElementById('brochure-modal');
@@ -79,6 +80,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const modalText = document.getElementById('modal-text');
 
         if (!modal || !modalImg || !modalTitle || !modalText) return;
+
+        // Save current scroll position
+        scrollPosition = window.scrollY;
+
+        // Freeze the background but keep visual position
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
 
         modal.style.display = 'flex';
         modalImg.src = url;
@@ -92,11 +102,23 @@ document.addEventListener("DOMContentLoaded", () => {
         if (closeBtn) {
             closeBtn.addEventListener('click', () => {
                 brochureModal.style.display = 'none';
+                // Restore scroll
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.left = '';
+                document.body.style.right = '';
+                window.scrollTo(0, scrollPosition);
             });
         }
 
         brochureModal.addEventListener('click', e => {
             if (e.target === brochureModal) brochureModal.style.display = 'none';
+            // Restore scroll
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.left = '';
+            document.body.style.right = '';
+            window.scrollTo(0, scrollPosition);
         });
     }
 
