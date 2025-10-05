@@ -35,7 +35,6 @@ Text Domain: countingsheep
 .navbar {
     position: relative;
     /* no longer sticky */
-
     top: 0;
     z-index: 999;
     display: flex;

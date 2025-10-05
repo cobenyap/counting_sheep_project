@@ -96,32 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
         modalText.textContent = text;
     }
 
-    const brochureModal = document.getElementById('brochure-modal');
-    if (brochureModal) {
-        const closeBtn = brochureModal.querySelector('.close');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => {
-                brochureModal.style.display = 'none';
-                // Restore scroll
-                document.body.style.position = '';
-                document.body.style.top = '';
-                document.body.style.left = '';
-                document.body.style.right = '';
-                window.scrollTo(0, scrollPosition);
-            });
-        }
-
-        brochureModal.addEventListener('click', e => {
-            if (e.target === brochureModal) brochureModal.style.display = 'none';
-            // Restore scroll
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.left = '';
-            document.body.style.right = '';
-            window.scrollTo(0, scrollPosition);
-        });
-    }
-
     // ---------- Contact / Dynamic Form Modal ----------
     const formModal = document.getElementById('dynamic-form-modal');
     const dynamicForm = document.getElementById('dynamic-form');
@@ -184,6 +158,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // ---------- Post card load for sharing ----------
+    const hash = window.location.hash;
+    if (hash.startsWith("#brochure=")) {
+        const postId = hash.split("=")[1];
+        // fetch post details via AJAX or locate it in the DOM
+        const card = document.querySelector(`.post-card[data-id='${postId}']`);
+        if (card) {
+            const title = card.querySelector("h3")?.textContent || "";
+            const text = card.querySelector("p")?.textContent || "";
+            const brochure = card.dataset.brochure;
+            openBrochureModal(brochure, title, text);
+        }
+    }
+
     // ---------- Post card clicks ----------
     function attachPostCardListeners() {
         const postCards = document.querySelectorAll(".post-card");
@@ -198,13 +186,44 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (type === "link" && link) {
                     window.open(link, "_blank");
                 } else if (type === "brochure" && brochure) {
+                    const postId = this.getAttribute("data-id");
                     openBrochureModal(brochure, title, text);
+
+                    // Update URL
+                    history.pushState({ brochure: postId }, "", `#brochure=${postId}`);
                 }
             });
         });
     }
-
     attachPostCardListeners();
+    // ---------- Post card close ----------
+    const brochureModal = document.getElementById('brochure-modal');
+    if (brochureModal) {
+        const closeBtn = brochureModal.querySelector('.close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                brochureModal.style.display = 'none';
+                // Restore scroll
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.left = '';
+                document.body.style.right = '';
+                window.scrollTo(0, scrollPosition);
+                history.pushState({}, "", window.location.pathname); // clear hash
+            });
+        }
+
+        brochureModal.addEventListener('click', e => {
+            if (e.target === brochureModal) brochureModal.style.display = 'none';
+            // Restore scroll
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.left = '';
+            document.body.style.right = '';
+            window.scrollTo(0, scrollPosition);
+            history.pushState({}, "", window.location.pathname); // clear hash
+        });
+    }
 
     const searchInput = document.getElementById("search-posts");
     const dateSelect = document.getElementById("filter-date");
