@@ -11,12 +11,17 @@ Text Domain: countingsheep
 */
 
 :root {
-    --theme-primary: #221F3C;
-    --theme-secondary: #B2A4D4;
-    --theme-tetiary: #6C68A0;
+    --theme-purple1: #221F3C;
+    --theme-purple2: #313863;
+    --theme-purple3: #4A4771;
+    --theme-purple4: #6C68A0;
+    --theme-purple5: #7D84B2;
+    --theme-purple6: #B2A4D4;
+    --theme-purple7: #B2A4D4;
     --theme-accent: #F7E5C8;
     --theme-contrast: #DEDFFA;
-    --theme-gradient: linear-gradient(135deg, var(--theme-tetiary), var(--theme-primary));
+    --theme-gradient: linear-gradient(135deg, var(--theme-purple1), var(--theme-purple2), var(--theme-purple3));
+    --theme-gradient-flip: linear-gradient(135deg, var(--theme-purple3), var(--theme-purple2), var(--theme-purple1));
     --theme-glass: rgba(255, 255, 255, 0.2);
     --theme-glass-hover: rgba(200, 200, 200, 0.2);
     --theme-weak-shadow: rgba(0, 0, 0, 0.3);
@@ -99,15 +104,11 @@ Text Domain: countingsheep
         flex-direction: column;
         align-items: center;
         gap: 1rem;
-
-        /* Glassmorphism background */
-        background: rgba(255, 255, 255, 0.15);
+        background: var(--theme-glass);
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
-
         padding: 1.5rem 0;
         border-radius: 0 0 16px 16px;
-
         /* Subtle shadow so it feels layered */
         box-shadow: 0 8px 20px var(--theme-weak-shadow);
         /* hidden until toggled */
@@ -118,6 +119,9 @@ Text Domain: countingsheep
 
     body.nav-open .navbar-links {
         display: flex;
+        backdrop-filter: blur(100px);
+        -webkit-backdrop-filter: blur(100px);
+        background: var(--theme-glass-hover);
     }
 
     .navbar-links a {
@@ -390,7 +394,7 @@ body {
     flex: 1;
     padding: 1.5rem;
     overflow-y: auto;
-    background: var(--theme-gradient);
+    background: var(--theme-gradient-flip);
 }
 
 .brochure-right h3 {
@@ -566,7 +570,7 @@ body {
 
 /* Submit Button */
 #dynamic-form button[type="submit"] {
-    background-color: var(--theme-primary);
+    background-color: var(--theme-purple1);
     color: #fff;
     padding: 0.8rem 2rem;
     border: none;
@@ -576,7 +580,7 @@ body {
 }
 
 #dynamic-form button[type="submit"]:hover {
-    background-color: var(--theme-tetiary);
+    background-color: var(--theme-purple4);
 }
 
 /* Form Message */
@@ -856,9 +860,9 @@ body {
 }
 
 .posts-filter-form select {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 2rem;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid var(--theme-glass);
     background: var(--theme-glass);
     color: #fff;
     appearance: none;
@@ -866,8 +870,7 @@ body {
 
 /* options dropdown */
 .posts-filter-form select option {
-    background: #26283B;
-    color: #fff;
+    color: black;
 }
 
 /* === Easter Egg === */
