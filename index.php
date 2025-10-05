@@ -1,5 +1,6 @@
+<?php get_header(); ?>
+
 <main role="main">
-    <?php get_header(); ?>
     <!-- Hero Section -->
     <section class="hero" role="banner">
         <div class="hero-content">
@@ -9,8 +10,8 @@
 
         <!-- Sheep + Fence -->
         <div class="hero-animation" aria-hidden="true">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/sheep.gif"
-                alt="Animated sheep jumping over a fence" class="sheep" loading="lazy">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/sheep.gif" 
+                 alt="Animated sheep jumping over a fence" class="sheep" loading="lazy">
             <div class="fence"></div>
         </div>
     </section>
@@ -44,9 +45,9 @@
                         data-brochure="<?php echo esc_url($brochure); ?>"
                         itemscope itemtype="https://schema.org/BlogPosting">
 
-                        <img src="<?php echo esc_url($thumbnail); ?>"
-                            alt="<?php the_title_attribute(); ?>"
-                            itemprop="image" loading="lazy">
+                        <img src="<?php echo esc_url($thumbnail); ?>" 
+                             alt="<?php the_title_attribute(); ?>" 
+                             itemprop="image" loading="lazy">
 
                         <h3 itemprop="headline"><?php the_title(); ?></h3>
                         <p itemprop="description"><?php echo wp_trim_words(get_the_excerpt(), 30, '...'); ?></p>
@@ -94,8 +95,8 @@
 
             foreach ($sponsors as $sponsor) : ?>
                 <a href="<?php echo esc_url($sponsor['url']); ?>" target="_blank" rel="noopener noreferrer" class="sponsor-card">
-                    <img src="<?php echo esc_url($sponsor['logo']); ?>"
-                        alt="<?php echo esc_attr($sponsor['name']); ?>" loading="lazy">
+                    <img src="<?php echo esc_url($sponsor['logo']); ?>" 
+                         alt="<?php echo esc_attr($sponsor['name']); ?>" loading="lazy">
                     <span class="visually-hidden"><?php echo esc_html($sponsor['name']); ?></span>
                 </a>
             <?php endforeach; ?>

@@ -23,7 +23,8 @@ Text Domain: countingsheep
     --theme-gradient: linear-gradient(135deg, var(--theme-purple1), var(--theme-purple2), var(--theme-purple3));
     --theme-gradient-flip: linear-gradient(135deg, var(--theme-purple3), var(--theme-purple2), var(--theme-purple1));
     --theme-glass: rgba(255, 255, 255, 0.2);
-    --theme-glass-hover: rgba(200, 200, 200, 0.2);
+    --theme-glass-hover: rgba(200, 200, 200, 0.3);
+    --theme-glass-borders: rgba(255, 255, 255, 0.5);
     --theme-weak-shadow: rgba(0, 0, 0, 0.3);
     --theme-medium-shadow: rgba(0, 0, 0, 0.5);
     --theme-strong-shadow: rgba(0, 0, 0, 0.8);
@@ -97,8 +98,8 @@ Text Domain: countingsheep
 /* === Navbar Mobile Responsive === */
 @media (max-width: 768px) {
     .navbar-links {
-        position: absolute;
-        top: 70px;
+        position: fixed;
+        top: 60px;
         left: 0;
         right: 0;
         flex-direction: column;
@@ -119,9 +120,10 @@ Text Domain: countingsheep
 
     body.nav-open .navbar-links {
         display: flex;
-        backdrop-filter: blur(100px);
-        -webkit-backdrop-filter: blur(100px);
-        background: var(--theme-glass-hover);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        background: rgba(100, 100, 100, 0.8);
+        overflow: hidden;
     }
 
     .navbar-links a {
@@ -267,7 +269,6 @@ body {
 .latest-posts,
 .bookmarked-posts {
     padding: 2rem 2rem;
-    background-color: rgba(255, 255, 255, 0.03);
     text-align: center;
     color: #fff;
 }
@@ -291,7 +292,7 @@ body {
 }
 
 .post-card {
-    background: rgba(125, 125, 125, 0.5);
+    background: rgba(125, 132, 178, 0.7);   
     backdrop-filter: blur(8px);
     border-radius: 12px;
     padding: 1rem;
@@ -627,7 +628,7 @@ body {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 
-    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-top: 1px solid var(--theme-glass-borders);
     box-shadow: 0 -4px 12px var(--theme-weak-shadow);
     color: #fff;
 }
@@ -667,11 +668,11 @@ body {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: var(--theme-glass);
+    background: var(--theme-glass-hover);
     /* semi-transparent glass effect */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--theme-glass);
     border-radius: 12px;
     color: #fff;
     font-size: 1.2rem;
@@ -684,7 +685,7 @@ body {
 
 /* Hover Effect */
 .footer-social a:hover {
-    background: var(--theme-glass-hover);
+    background: var(--theme-glass);
     color: var(--theme-accent);
     /* gold accent */
     transform: translateY(-2px);
@@ -705,7 +706,7 @@ body {
     -webkit-backdrop-filter: blur(10px);
     color: #fff;
     font-weight: 600;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--theme-glass-borders);
     border-radius: 12px;
     padding: 0.7rem 1.2rem;
     cursor: pointer;
@@ -849,7 +850,7 @@ body {
 .posts-filter-form select {
     padding: 0.5rem 1rem;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid var(--theme-glass-borders);
     background: var(--theme-glass);
     color: #fff;
 }

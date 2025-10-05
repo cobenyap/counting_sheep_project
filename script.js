@@ -71,7 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-
     // ---------- Brochure Modal ----------
     function openBrochureModal(url, title = "", text = "") {
         const modal = document.getElementById('brochure-modal');
