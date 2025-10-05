@@ -33,7 +33,8 @@ Text Domain: countingsheep
 
 /* === Navbar Styles === */
 .navbar {
-    position: relative; /* no longer sticky */
+    position: relative;
+    /* no longer sticky */
 
     top: 0;
     z-index: 999;
@@ -276,7 +277,7 @@ body {
 }
 
 .post-card {
-    background: rgba(125, 132, 178, 0.7);   
+    background: rgba(125, 132, 178, 0.7);
     backdrop-filter: blur(8px);
     border-radius: 12px;
     padding: 1rem;
@@ -857,6 +858,33 @@ body {
 /* options dropdown */
 .posts-filter-form select option {
     color: black;
+}
+
+/* --- Mobile-friendly fixes for filter form --- */
+@media (max-width: 768px) {
+    .posts-filter-form {
+        flex-direction: column;
+        align-items: stretch;
+        box-sizing: border-box;
+    }
+
+    .posts-filter-form input[type="text"],
+    .posts-filter-form select {
+        font-size: 1rem;
+    }
+
+    /* Ensure dropdown doesn't overflow screen edges */
+    .posts-filter-form select {
+        display: block;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        border-radius: 8px;
+        font-size: 1rem;
+    }
+
+    .posts-filter-form select option {
+        width: 100px;
+    }
 }
 
 /* === Easter Egg === */
