@@ -45,10 +45,11 @@
             <div class="about-text">
                 <h2 id="about-heading">About the Counting Sheep Project</h2>
                 <p>
-                    At the Counting Sheep Project, we believe better sleep leads to better days.
-                    Our mission is to raise awareness about sleep wellness and make relaxation accessible for everyone.
-                    Through our outreach programs, creative campaigns, and collaborations with youth organizations,
-                    we aim to help people count less sheep — and enjoy more restful nights.
+                    Counting Sheep helps people build healthier sleep habits through play, 
+                    science, and community. Blending sleep research with creative design, 
+                    we turn evidence-based strategies into playful experiences, 
+                    from our interactive workshops to engaging games and 
+                    mindful bedtime tools for everyday rest
                 </p>
             </div>
         </div>
