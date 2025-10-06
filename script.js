@@ -159,18 +159,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ---------- Post card load for sharing ----------
-    const hash = window.location.hash;
-    if (hash.startsWith("#brochure=")) {
-        const postId = hash.split("=")[1];
-        // fetch post details via AJAX or locate it in the DOM
-        const card = document.querySelector(`.post-card[data-id='${postId}']`);
-        if (card) {
-            const title = card.querySelector("h3")?.textContent || "";
-            const text = card.querySelector("p")?.textContent || "";
-            const brochure = card.dataset.brochure;
-            openBrochureModal(brochure, title, text);
+    function checkBrochureHash() {
+        const hash = window.location.hash;
+        if (hash.startsWith("#brochure=")) {
+            const param = hash.replace("#brochure=", "");
+            const parts = param.split("-");
+            const postId = parts[parts.length - 1];
+
+            const card = document.querySelector(`.post-card[data-id='${postId}']`);
+            if (card) {
+                const title = card.querySelector("h3")?.textContent || "";
+                const text = card.querySelector("p")?.textContent || "";
+                const brochure = card.dataset.brochure;
+                openBrochureModal(brochure, title, text);
+            } else {
+                // If posts aren't loaded yet, try again after 300ms
+                setTimeout(checkBrochureHash, 300);
+            }
         }
     }
+    checkBrochureHash();
+
 
     // ---------- Post card clicks ----------
     function attachPostCardListeners() {
@@ -187,14 +196,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     window.open(link, "_blank");
                 } else if (type === "brochure" && brochure) {
                     const postId = this.getAttribute("data-id");
+                    const slug = this.dataset.slug;
                     openBrochureModal(brochure, title, text);
 
-                    // Update URL
-                    history.pushState({ brochure: postId }, "", `#brochure=${postId}`);
+                    // Update URL (slug + ID for uniqueness)
+                    const encodedSlug = encodeURIComponent(slug);
+                    history.pushState({ brochure: postId }, "", `#brochure=${encodedSlug}-${postId}`);
                 }
             });
         });
     }
+
     attachPostCardListeners();
     // ---------- Post card close ----------
     const brochureModal = document.getElementById('brochure-modal');
@@ -247,7 +259,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 .then(res => res.text())
                 .then(data => {
                     results.innerHTML = data;
-                    attachPostCardListeners(); // rebind new cards
+                    checkBrochureHash();
+                    attachPostCardListeners();
                 });
         }
 

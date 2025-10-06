@@ -104,6 +104,8 @@ function cs_ajax_filter_posts()
                 : get_template_directory_uri() . '/assets/logo_icon.png';
 ?>
             <article class="post-card"
+                data-id="<?php echo get_the_ID(); ?>"
+                data-slug="<?php echo sanitize_title(get_the_title()); ?>"
                 data-type="<?php echo esc_attr($type); ?>"
                 data-link="<?php echo esc_url($link); ?>"
                 data-brochure="<?php echo esc_url($brochure); ?>"
