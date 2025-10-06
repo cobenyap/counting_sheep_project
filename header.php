@@ -58,10 +58,17 @@
 
         <!-- Middle navigation -->
         <nav class="navbar-links" role="navigation" aria-label="Main Navigation">
-            <a href="<?php echo esc_url(home_url('/')); ?>">Home</a>
-            <a href="https://quiz.countingsheepproject.com/" target="_blank">Quiz</a>
-            <a href="https://shopee.sg/countingsheepproject" target="_blank" rel="noopener noreferrer">Shop</a>
+            <?php
+            wp_nav_menu(array(
+                'theme_location' => 'header_menu',
+                'container'      => false,
+                'menu_class'     => 'navbar-links-list',
+                'fallback_cb'    => false,
+                'depth'          => 1,
+            ));
+            ?>
         </nav>
+
 
         <!-- Mobile menu button (hamburger) -->
         <button class="navbar-toggle" aria-label="Open menu">

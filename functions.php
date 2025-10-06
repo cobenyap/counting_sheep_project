@@ -24,6 +24,16 @@ function mytheme_setup()
 }
 add_action('after_setup_theme', 'mytheme_setup');
 
+// Register custom menus for header and footer
+function cs_register_menus()
+{
+    register_nav_menus(array(
+        'header_menu' => __('Header Menu', 'countingsheep'),
+        'footer_menu' => __('Footer Menu', 'countingsheep'),
+    ));
+}
+add_action('after_setup_theme', 'cs_register_menus');
+
 
 // === Enqueue Google Fonts (Nunito) ===
 function mytheme_enqueue_fonts()

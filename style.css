@@ -31,10 +31,9 @@ Text Domain: countingsheep
 }
 
 
-/* === Navbar Styles === */
+/* === Navbar Styles (WordPress dynamic menu compatible) === */
 .navbar {
     position: relative;
-    /* no longer sticky */
     top: 0;
     z-index: 999;
     display: flex;
@@ -52,11 +51,21 @@ Text Domain: countingsheep
     border-radius: 8px;
 }
 
-.navbar-links {
+/* Handle WordPress nav menu UL + LI structure */
+.navbar-links ul {
     display: flex;
     gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
+.navbar-links li {
+    display: flex;
+    align-items: center;
+}
+
+/* Link styling (same as before) */
 .navbar-links a {
     text-decoration: none;
     font-weight: 600;
@@ -90,7 +99,7 @@ Text Domain: countingsheep
 
 /* === Mobile Responsive === */
 @media (max-width: 768px) {
-    .navbar-links {
+    .navbar-links ul {
         position: absolute;
         top: 100%;
         left: 0;
@@ -109,7 +118,7 @@ Text Domain: countingsheep
     }
 
     /* When menu is open */
-    body.nav-open .navbar-links {
+    body.nav-open .navbar-links ul {
         display: flex;
     }
 
@@ -132,6 +141,7 @@ Text Domain: countingsheep
         display: block;
     }
 }
+
 
 
 body.home {
