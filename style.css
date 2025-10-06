@@ -149,6 +149,13 @@ body.home {
     background-size: cover;
 }
 
+@media (min-width: 768px) {
+    body.home {
+        background-attachment: fixed;
+        /* keep fixed on desktop only */
+    }
+}
+
 body {
     background: var(--theme-gradient);
     font-family: 'Nunito', sans-serif;
