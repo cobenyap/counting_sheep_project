@@ -16,6 +16,46 @@
         </div>
     </section>
 
+    <!-- About Section with Image Carousel -->
+    <section class="about-section" aria-labelledby="about-heading">
+        <div class="about-container">
+            <!-- Left: Image Carousel -->
+            <div class="about-carousel" aria-label="Photo Gallery">
+                <div class="carousel-track">
+                    <figure class="carousel-item">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/about1.jpg" alt="Peaceful bedroom for better sleep" loading="lazy">
+                        <figcaption>Hack Your Next Night of Rest Through Play</figcaption>
+                    </figure>
+                    <figure class="carousel-item">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/about2.jpg" alt="Relaxed person enjoying restful sleep" loading="lazy">
+                        <figcaption>Interactive and Science-based Workshops</figcaption>
+                    </figure>
+                    <figure class="carousel-item">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/about3.jpg" alt="Comfortable bedding and calm lighting" loading="lazy">
+                        <figcaption>Sleep Tools for Mindful Work and Rest</figcaption>
+                    </figure>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" aria-label="Previous image">&#10094;</button>
+                    <button class="carousel-btn next" aria-label="Next image">&#10095;</button>
+                </div>
+            </div>
+
+            <!-- Right: About Text -->
+            <div class="about-text">
+                <h2 id="about-heading">About the Counting Sheep Project</h2>
+                <p>
+                    At the Counting Sheep Project, we believe better sleep leads to better days.
+                    Our mission is to raise awareness about sleep wellness and make relaxation accessible for everyone.
+                    Through our outreach programs, creative campaigns, and collaborations with youth organizations,
+                    we aim to help people count less sheep — and enjoy more restful nights.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+
     <!-- Latest Posts Section -->
     <section class="latest-posts" aria-labelledby="latest-news-heading">
         <div class="latest-header">

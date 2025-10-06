@@ -25,6 +25,7 @@ Text Domain: countingsheep
     --theme-glass: rgba(255, 255, 255, 0.2);
     --theme-glass-hover: rgba(200, 200, 200, 0.3);
     --theme-glass-borders: rgba(255, 255, 255, 0.5);
+    --theme-glass-tinted: rgba(125, 132, 178, 0.7);
     --theme-weak-shadow: rgba(0, 0, 0, 0.3);
     --theme-medium-shadow: rgba(0, 0, 0, 0.5);
     --theme-strong-shadow: rgba(0, 0, 0, 0.8);
@@ -104,7 +105,7 @@ Text Domain: countingsheep
         top: 100%;
         left: 0;
         right: 0;
-        width:100%;
+        width: 100%;
         flex-direction: column;
         align-items: stretch;
         gap: 1rem;
@@ -225,6 +226,166 @@ body {
         width: 300px;
         left: -150px;
         top: -50px;
+    }
+}
+
+/* === About Section with Carousel and Captions === */
+.about-section {
+    padding: 5rem 2rem;
+    background: transparent;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+/* Carousel container */
+.about-carousel {
+    position: relative;
+    flex: 1 1 50%;
+    max-width: 500px;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid var(--theme-glass-borders);
+    background: var(--theme-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 6px 20px var(--theme-weak-shadow);
+}
+
+/* Carousel track */
+.carousel-track {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Each image + caption block */
+.carousel-item {
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 1.2rem;
+    /* space for caption */
+}
+
+.carousel-item img {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+}
+
+/* Caption styling */
+.carousel-item figcaption {
+    font-size: 1rem;
+    color: white;
+    padding: 0.75rem 1rem;
+    background: var(--theme-glass-tinted);
+    border-top: 1px solid var(--theme-glass-borders);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    text-shadow: 1px 1px 3px var(--theme-strong-shadow);
+}
+
+/* Carousel buttons */
+.carousel-controls {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 1rem;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.carousel-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--theme-glass-hover);
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    pointer-events: auto;
+    line-height: 1;
+    padding: 0;
+}
+
+.carousel-btn:hover {
+    background: var(--theme-glass);
+    color: var(--theme-accent);
+}
+
+/* About text */
+.about-text {
+    flex: 1 1 50%;
+    max-width: 550px;
+    padding: 2rem 2rem;
+    background: var(--theme-purple1);
+    border-radius: 24px;
+    box-shadow: 0 8px 25px var(--theme-weak-shadow);
+}
+
+.about-text h2 {
+    font-size: 2.3rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* === Mobile Responsive === */
+@media (max-width: 992px) {
+    .about-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .about-carousel,
+    .about-text {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .about-text h2 {
+        font-size: 2rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+    }
+
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1.5rem;
+    }
+
+    .carousel-item figcaption {
+        font-size: 0.9rem;
+        padding: 0.5rem;
     }
 }
 

@@ -70,6 +70,57 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    const track = document.querySelector(".carousel-track");
+    const images = document.querySelectorAll(".carousel-track img");
+    const prevBtn = document.querySelector(".carousel-btn.prev");
+    const nextBtn = document.querySelector(".carousel-btn.next");
+    // ===== Carousel Functionality =====
+    if (track && images && prevBtn && nextBtn) {
+
+        if (images.length === 0) return;
+
+        let index = 0;
+        const total = images.length;
+        let intervalId;
+
+        const updateCarousel = () => {
+            track.style.transform = `translateX(-${index * 100}%)`;
+        };
+
+        const nextSlide = () => {
+            index = (index + 1) % total;
+            updateCarousel();
+        };
+
+        const prevSlide = () => {
+            index = (index - 1 + total) % total;
+            updateCarousel();
+        };
+
+        // ---- Interval management ----
+        const startAutoSlide = () => {
+            intervalId = setInterval(nextSlide, 5000);
+        };
+
+        const resetAutoSlide = () => {
+            clearInterval(intervalId);
+            startAutoSlide(); // restart countdown
+        };
+
+        // ---- Button events ----
+        nextBtn.addEventListener("click", () => {
+            nextSlide();
+            resetAutoSlide(); // reset on manual click
+        });
+
+        prevBtn.addEventListener("click", () => {
+            prevSlide();
+            resetAutoSlide(); // reset on manual click
+        });
+
+        // ---- Start auto-slide ----
+        startAutoSlide();
+    }
 
     let scrollPosition = 0;
     // ---------- Brochure Modal ----------
