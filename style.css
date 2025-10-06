@@ -456,6 +456,90 @@ body {
     }
 }
 
+/* === Contact CTA Section === */
+.contact-cta {
+    position: relative;
+    text-align: center;
+    padding: 2rem 2rem;
+    margin: 1rem auto;
+    background: var(--theme-purple1);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-radius: 24px;
+    box-shadow: 0 8px 25px var(--theme-weak-shadow);
+    color: #fff;
+    max-width: 900px;
+}
+
+.contact-cta-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-cta h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.contact-cta p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Call-to-Action Button */
+.contact-cta-btn {
+    background: var(--theme-glass-hover);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #fff;
+    font-weight: 700;
+    border: 1px solid var(--theme-glass-borders);
+    border-radius: 16px;
+    padding: 1rem 2.5rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 3px var(--theme-strong-shadow);
+}
+
+.contact-cta-btn:hover {
+    background: var(--theme-glass);
+    color: var(--theme-accent);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px var(--theme-weak-shadow);
+}
+
+.contact-cta-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px var(--theme-weak-shadow);
+}
+
+/* === Responsive Styling === */
+@media (max-width: 768px) {
+    .contact-cta {
+        padding: 3rem 1.5rem;
+        margin: 3rem 1rem;
+    }
+
+    .contact-cta h2 {
+        font-size: 2rem;
+    }
+
+    .contact-cta p {
+        font-size: 1.05rem;
+    }
+
+    .contact-cta-btn {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        border-radius: 12px;
+    }
+}
+
+
 
 /* === Sponsor Styles === */
 

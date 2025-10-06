@@ -69,7 +69,7 @@
 
     <!-- Sponsors Section -->
     <section class="sponsors" aria-labelledby="sponsors-heading">
-        <h2 id="sponsors-heading">Our Sponsors</h2>
+        <h2 id="sponsors-heading">Our Partners</h2>
         <div class="sponsors-container">
             <?php
             $sponsors = [
@@ -102,6 +102,17 @@
                     <span class="visually-hidden"><?php echo esc_html($sponsor['name']); ?></span>
                 </a>
             <?php endforeach; ?>
+        </div>
+    </section>
+
+    <!-- Contact Call-to-Action Section -->
+    <section class="contact-cta" aria-labelledby="contact-cta-heading">
+        <div class="contact-cta-content">
+            <h2 id="contact-cta-heading">Get in Touch With Us</h2>
+            <p>Have questions or want to collaborate? We’d love to hear from you.</p>
+            <button class="contact-cta-btn" aria-haspopup="dialog" aria-controls="dynamic-form-modal">
+                Contact Us
+            </button>
         </div>
     </section>
 

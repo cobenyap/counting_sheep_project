@@ -101,6 +101,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const formCloseBtn = formModal?.querySelector('.close');
     const formTitle = document.getElementById('form-title');
     const contactBtn = document.querySelector('.contact-us-btn');
+    const contactCtaBtn = document.querySelector('.contact-cta-btn');
+
+    // Open modal when contact button is clicked
+    if (contactBtn) {
+        contactBtn.addEventListener('click', openFormModal);
+    }
+    if (contactCtaBtn) {
+        contactCtaBtn.addEventListener('click', openFormModal);
+    }
 
     // Open modal
     function openFormModal() {
@@ -144,12 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-
-    // Open modal when contact button is clicked
-    if (contactBtn) {
-        contactBtn.addEventListener('click', openFormModal);
-    }
-
 
     // ---------- Post card load for sharing ----------
     function checkBrochureHash() {
