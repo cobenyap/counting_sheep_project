@@ -534,46 +534,48 @@ body {
 }
 
 /* Form Groups */
-.form-group {
-    margin-bottom: 1rem;
+/* Override Forminator styles within modal */
+#dynamic-form-modal .forminator-ui {
+    font-family: inherit;
+    color: #000;
+    background: transparent;
 }
 
-.form-group label {
-    display: block;
-    font-weight: 500;
-    margin-bottom: 0.3rem;
-}
-
-.form-group input,
-.form-group textarea {
+/* Input + textarea */
+#dynamic-form-modal .forminator-input,
+#dynamic-form-modal .forminator-textarea {
     width: 100%;
     padding: 0.5rem;
     border-radius: 6px;
-    border: 1px solid #ccc;
+    border: 1px solid #ccc !important;
     font-size: 1rem;
     box-sizing: border-box;
+    background: #fff;
+}
+
+/* Labels */
+#dynamic-form-modal .forminator-label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    color: #000;
 }
 
 /* Submit Button */
-#dynamic-form button[type="submit"] {
-    background-color: var(--theme-purple1);
-    color: #fff;
-    padding: 0.8rem 2rem;
-    border: none;
-    border-radius: 6px;
+#dynamic-form-modal .forminator-button-submit {
+    background-color: var(--theme-purple1) !important;
+    color: #fff !important;
+    padding: 0.8rem 2rem !important;
+    border: none !important;
+    border-radius: 6px !important;
     cursor: pointer;
     font-size: 1rem;
+    text-transform: none;
+    width: 100%;
 }
 
-#dynamic-form button[type="submit"]:hover {
-    background-color: var(--theme-purple4);
-}
-
-/* Form Message */
-#form-message {
-    margin-top: 1rem;
-    font-weight: 500;
-    color: green;
+#dynamic-form-modal .forminator-button-submit:hover {
+    background-color: var(--theme-purple4) !important;
 }
 
 /* === Mobile Responsiveness === */

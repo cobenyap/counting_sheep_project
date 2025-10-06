@@ -98,65 +98,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ---------- Contact / Dynamic Form Modal ----------
     const formModal = document.getElementById('dynamic-form-modal');
-    const dynamicForm = document.getElementById('dynamic-form');
-    if (formModal && dynamicForm) {
-        const formCloseBtn = formModal.querySelector('.close');
-        const formTitle = document.getElementById('form-title');
-        const formMode = document.getElementById('form-mode');
-        const workshopField = document.getElementById('workshop-name');
+    const formCloseBtn = formModal?.querySelector('.close');
+    const formTitle = document.getElementById('form-title');
+    const contactBtn = document.querySelector('.contact-us-btn');
 
-        function openFormModal(mode, workshopName = '') {
-            if (!formModal || !formTitle || !formMode || !workshopField) return;
+    // Open modal
+    function openFormModal() {
+        if (!formModal || !formTitle) return;
+        formTitle.textContent = "Contact Us";
+        formModal.style.display = 'block';
+        // Save current scroll position
+        scrollPosition = window.scrollY;
 
-            formMode.value = mode;
+        // Freeze the background but keep visual position
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+    }
 
-            if (mode === 'rsvp') {
-                formTitle.textContent = "RSVP for " + workshopName;
-                workshopField.value = workshopName;
-                workshopField.parentElement.style.display = 'block';
-            } else if (mode === 'contact') {
-                formTitle.textContent = "Contact Us";
-                workshopField.value = '';
-                workshopField.parentElement.style.display = 'none';
-            }
-
-            formModal.style.display = 'block';
-        }
-
-        if (formCloseBtn) {
-            formCloseBtn.addEventListener('click', () => {
-                formModal.style.display = 'none';
-            });
-        }
-
-        formModal.addEventListener('click', e => {
-            if (e.target === formModal) formModal.style.display = 'none';
-        });
-
-        document.querySelectorAll('.rsvp-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const workshop = btn.dataset.workshop || '';
-                openFormModal('rsvp', workshop);
-            });
-        });
-
-        const contactBtn = document.querySelector('.contact-us-btn');
-        if (contactBtn) {
-            contactBtn.addEventListener('click', () => openFormModal('contact'));
-        }
-
-        dynamicForm.addEventListener('submit', e => {
-            e.preventDefault();
-            const formData = new FormData(dynamicForm);
-
-            // Optional AJAX submission here
-            // const response = await fetch('<?php echo admin_url('admin-ajax.php'); ?>', { method: 'POST', body: formData });
-
-            document.getElementById('form-message').textContent = "Submitted successfully!";
-            dynamicForm.reset();
+    // Close modal when X is clicked
+    if (formCloseBtn) {
+        formCloseBtn.addEventListener('click', () => {
             formModal.style.display = 'none';
+            // Restore scroll
+            resetScrollModalClose();
         });
     }
+
+    function resetScrollModalClose() {
+        // Restore scroll
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        window.scrollTo(0, scrollPosition);
+    }
+
+    // Close modal when background is clicked
+    if (formModal) {
+        formModal.addEventListener('click', e => {
+            if (e.target === formModal) {
+                formModal.style.display = 'none';
+                resetScrollModalClose();
+            }
+        });
+    }
+
+    // Open modal when contact button is clicked
+    if (contactBtn) {
+        contactBtn.addEventListener('click', openFormModal);
+    }
+
 
     // ---------- Post card load for sharing ----------
     function checkBrochureHash() {
