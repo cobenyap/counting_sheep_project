@@ -104,8 +104,9 @@ Text Domain: countingsheep
         top: 100%;
         left: 0;
         right: 0;
+        width:100%;
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
         gap: 1rem;
         background: rgba(100, 100, 100, 0.7);
         backdrop-filter: blur(15px);
@@ -141,7 +142,6 @@ Text Domain: countingsheep
         display: block;
     }
 }
-
 
 
 body.home {
