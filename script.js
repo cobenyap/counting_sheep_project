@@ -323,6 +323,17 @@ document.addEventListener("DOMContentLoaded", () => {
         fetchPosts();
     }
 
+    const searchIcon = document.getElementById("search-icon");
+    // ---------- search icon ----------
+    if (searchIcon && searchInput) {
+        searchIcon.addEventListener("click", () => {
+            // Only on mobile — hide keyboard
+            if (window.innerWidth <= 768) {
+                searchInput.blur(); // hides keyboard
+            }
+        });
+    }
+
     // ---------- Easter Egg ----------
     const easterBtn = document.querySelector(".footer-left p"); // copyright trigger
     const easterPopup = document.getElementById("easter-egg-popup");

@@ -1097,18 +1097,57 @@ body {
     flex-wrap: wrap;
 }
 
-.posts-filter-form input[type="text"],
+/* === Search wrapper === */
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    max-width: 400px;
+}
+
+.search-wrapper input[type="text"] {
+    width: 100%;
+    padding: 0.8rem 3rem 0.8rem 1.2rem;
+    /* add right padding for icon */
+    border-radius: 10px;
+    border: 1px solid var(--theme-glass-borders);
+    background: var(--theme-glass);
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.search-wrapper input::placeholder {
+    color: var(--theme-glass-borders);
+    font-style: italic;
+}
+
+/* Search icon */
+#search-icon {
+    position: absolute;
+    right: 0.8rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    padding: 0;
+}
+
+#search-icon .dashicons {
+    font-size: 24px;
+    line-height: 1;
+}
+
 .posts-filter-form select {
     padding: 0.5rem 1rem;
     border-radius: 8px;
     border: 1px solid var(--theme-glass-borders);
     background: var(--theme-glass);
     color: #fff;
-}
-
-.posts-filter-form input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-    font-style: italic;
 }
 
 .posts-filter-form select {
@@ -1131,6 +1170,26 @@ body {
         flex-direction: column;
         align-items: stretch;
         box-sizing: border-box;
+    }
+
+    .posts-filter-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-wrapper {
+        width: 100%;
+        max-width: none;
+    }
+
+    .search-wrapper input[type="text"] {
+        font-size: 1rem;
+        padding-right: 2.5rem;
+    }
+
+    #search-icon {
+        right: 0.75rem;
+        font-size: 1.4rem;
     }
 
     .posts-filter-form input[type="text"],

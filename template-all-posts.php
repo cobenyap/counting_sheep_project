@@ -6,14 +6,19 @@ get_header();
 ?>
 
 <main class="all-posts-page" role="main">
-    
+
     <section class="all-posts">
         <header>
             <h1>All Blog Posts</h1>
         </header>
 
         <div class="posts-filter-form">
-            <input type="text" id="search-posts" placeholder="Search posts...">
+            <div class="search-wrapper">
+                <input type="text" id="search-posts" placeholder="Search posts...">
+                <button type="button" id="search-icon" aria-label="Search">
+                    <span class="dashicons dashicons-search"></span>
+                </button>
+            </div>
 
             <select id="filter-date">
                 <option value="">All Dates</option>
