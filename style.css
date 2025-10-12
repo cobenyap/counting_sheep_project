@@ -439,6 +439,16 @@ body {
         font-size: 1rem;
     }
 
+    .about-text-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        align-self: stretch;
+        padding: 1rem 0;
+        font-size: 1rem;
+        border-radius: 12px;
+    }
+
     .carousel-btn {
         width: 36px;
         height: 36px;
