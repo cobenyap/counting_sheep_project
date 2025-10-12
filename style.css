@@ -252,12 +252,15 @@ body {
     flex: 1 1 50%;
     max-width: 500px;
     overflow: hidden;
+    padding: 0;
     border-radius: 20px;
     border: 1px solid var(--theme-glass-borders);
     background: var(--theme-glass);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     box-shadow: 0 6px 20px var(--theme-weak-shadow);
+    display: flex;
+    align-items: stretch;
 }
 
 /* Carousel track */
@@ -272,17 +275,24 @@ body {
     flex-shrink: 0;
     width: 100%;
     text-align: center;
-    padding-bottom: 1.2rem;
-    /* space for caption */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .carousel-item img {
     width: 100%;
+    height: auto;
     border-radius: 20px 20px 0 0;
+    flex-shrink: 0;
 }
 
 /* Caption styling */
 .carousel-item figcaption {
+    flex-grow: 1;                   
+    display: flex;
+    align-items: center;            
+    justify-content: center;        
     font-size: 1rem;
     color: white;
     padding: 0.75rem 1rem;
