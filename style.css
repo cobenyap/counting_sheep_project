@@ -145,11 +145,6 @@ Text Domain: countingsheep
 }
 
 
-body.home {
-    background: url('assets/landing_background.png') no-repeat center center fixed;
-    background-size: cover;
-}
-
 @media (min-width: 768px) {
     body.home {
         background-attachment: fixed;
@@ -160,6 +155,8 @@ body.home {
 body {
     background: var(--theme-gradient);
     font-family: 'Nunito', sans-serif;
+    background: url('assets/landing_background.png') no-repeat center center fixed;
+    background-size: cover;
 }
 
 /* === Hero Section === */
