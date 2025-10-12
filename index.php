@@ -137,7 +137,7 @@
             ];
 
             foreach ($sponsors as $sponsor) : ?>
-                <a href="<?php echo esc_url($sponsor['url']); ?>" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+                <a  rel="noopener noreferrer" class="sponsor-card">
                     <img src="<?php echo esc_url($sponsor['logo']); ?>"
                         alt="<?php echo esc_attr($sponsor['name']); ?>" loading="lazy">
                     <span class="visually-hidden"><?php echo esc_html($sponsor['name']); ?></span>
