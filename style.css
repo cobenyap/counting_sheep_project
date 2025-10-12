@@ -231,7 +231,7 @@ body {
 
 /* === About Section with Carousel and Captions === */
 .about-section {
-    padding: 5rem 2rem;
+    padding: 2rem 2rem;
     background: transparent;
     color: #fff;
     display: flex;
@@ -247,6 +247,10 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     flex-wrap: wrap;
+}
+
+.about-section.reverse .about-container {
+    flex-direction: row-reverse;
 }
 
 /* Carousel container */
@@ -356,6 +360,16 @@ body {
     display: flex;
 }
 
+.about-text-middle {
+    background: var(--theme-purple5);
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+}
+
 .about-text h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -368,11 +382,47 @@ body {
     color: rgba(255, 255, 255, 0.85);
 }
 
+.about-text-middle h2,
+.about-text-middle p {
+    color: var(--theme-purple1);
+    font-weight: 900;
+}
+
+.about-text-btn {
+    background: var(--theme-glass-hover);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #fff;
+    font-weight: 700;
+    border: 1px solid var(--theme-glass-borders);
+    border-radius: 16px;
+    padding: 1rem 4.5rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 3px var(--theme-strong-shadow);
+    display: inline-block;
+    width: auto;
+    align-self: flex-start;
+    text-decoration: none;
+}
+
+.about-text-btn:hover {
+    background: var(--theme-glass);
+    color: var(--theme-accent);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px var(--theme-weak-shadow);
+}
+
 /* === Mobile Responsive === */
 @media (max-width: 768px) {
     .about-container {
         flex-direction: column;
         gap: 2rem;
+    }
+
+    .about-section.reverse .about-container {
+        flex-direction: column;
     }
 
     .about-carousel,

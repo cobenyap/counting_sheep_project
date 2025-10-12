@@ -17,7 +17,8 @@
     </section>
 
     <!-- About Section with Image Carousel -->
-    <section class="about-section" aria-labelledby="about-heading">
+    <!-- === About Section 1 (image left) === -->
+    <section class="about-section" aria-labelledby="about1-heading">
         <div class="about-container">
             <!-- Left: Image Carousel -->
             <div class="about-carousel" aria-label="Photo Gallery">
@@ -43,18 +44,91 @@
 
             <!-- Right: About Text -->
             <div class="about-text">
-                <h2 id="about-heading">About the Counting Sheep Project</h2>
+                <h2 id="about1-heading">About the Counting Sheep Project</h2>
                 <p>
-                    Counting Sheep helps people build healthier sleep habits through play, 
-                    science, and community. Blending sleep research with creative design, 
-                    we turn evidence-based strategies into playful experiences, 
-                    from our interactive workshops to engaging games and 
-                    mindful bedtime tools for everyday rest
+                    Counting Sheep helps people build healthier sleep habits through play,
+                    science, and community. Blending sleep research with creative design,
+                    we turn evidence-based strategies into playful experiences,
+                    from our interactive workshops to engaging games and
+                    mindful bedtime tools for everyday rest
                 </p>
             </div>
         </div>
     </section>
 
+
+    <!-- === About Section 2 (REVERSED LAYOUT) Workshop === -->
+    <section class="about-section reverse" aria-labelledby="about2-heading">
+        <div class="about-container">
+            <!-- Right: Image Carousel -->
+            <div class="about-carousel" aria-label="Workshop Gallery">
+                <div class="carousel-track">
+                    <figure class="carousel-item">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/about1.jpg" alt="Peaceful bedroom for better sleep" loading="lazy">
+                        <figcaption>Hack Your Next Night of Rest Through Play</figcaption>
+                    </figure>
+                    <figure class="carousel-item">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/about2.jpg" alt="Relaxed person enjoying restful sleep" loading="lazy">
+                        <figcaption>Interactive and Science-based Workshops</figcaption>
+                    </figure>
+                    <figure class="carousel-item">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/about3.jpg" alt="Comfortable bedding and calm lighting" loading="lazy">
+                        <figcaption>Sleep Tools for Mindful Work and Rest</figcaption>
+                    </figure>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" aria-label="Previous image">&#10094;</button>
+                    <button class="carousel-btn next" aria-label="Next image">&#10095;</button>
+                </div>
+            </div>
+
+            <!-- Left: Text -->
+            <div class="about-text about-text-middle">
+                <h2 id="about2-heading">Workshops & Sleep Journeys</h2>
+                <p>Our creative workshops guide you through fun, science-backed sleep activities...</p>
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('all-posts'))); ?>" class="about-text-btn">
+                    Discover Workshops
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- === About Section 3  === -->
+    <section class="about-section" aria-labelledby="about3-heading">
+        <div class="about-container">
+            <!-- Left: Image Carousel -->
+            <div class="about-carousel" aria-label="Sleep Tools Gallery">
+                <div class="carousel-track">
+                    <figure class="carousel-item">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/about1.jpg" alt="Peaceful bedroom for better sleep" loading="lazy">
+                        <figcaption>Hack Your Next Night of Rest Through Play</figcaption>
+                    </figure>
+                    <figure class="carousel-item">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/about2.jpg" alt="Relaxed person enjoying restful sleep" loading="lazy">
+                        <figcaption>Interactive and Science-based Workshops</figcaption>
+                    </figure>
+                    <figure class="carousel-item">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/about3.jpg" alt="Comfortable bedding and calm lighting" loading="lazy">
+                        <figcaption>Sleep Tools for Mindful Work and Rest</figcaption>
+                    </figure>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" aria-label="Previous image">&#10094;</button>
+                    <button class="carousel-btn next" aria-label="Next image">&#10095;</button>
+                </div>
+            </div>
+
+            <!-- Right: About Text -->
+            <div class="about-text">
+                <h2 id="about3-heading">Sleep Tools for Modern Life</h2>
+                <p>We design interactive apps and bedtime aids that blend design, play, and mindfulness...</p>
+                <a href="https://shopee.sg/countingsheepproject" target="_blank" rel="noopener noreferrer" class="about-text-btn">
+                    Shop
+                </a>
+            </div>
+        </div>
+    </section>
 
 
     <!-- Latest Posts Section -->
@@ -137,7 +211,7 @@
             ];
 
             foreach ($sponsors as $sponsor) : ?>
-                <a  rel="noopener noreferrer" class="sponsor-card">
+                <a rel="noopener noreferrer" class="sponsor-card">
                     <img src="<?php echo esc_url($sponsor['logo']); ?>"
                         alt="<?php echo esc_attr($sponsor['name']); ?>" loading="lazy">
                     <span class="visually-hidden"><?php echo esc_html($sponsor['name']); ?></span>

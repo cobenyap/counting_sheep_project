@@ -70,14 +70,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const track = document.querySelector(".carousel-track");
-    const images = document.querySelectorAll(".carousel-track img");
-    const prevBtn = document.querySelector(".carousel-btn.prev");
-    const nextBtn = document.querySelector(".carousel-btn.next");
-    // ===== Carousel Functionality =====
-    if (track && images && prevBtn && nextBtn) {
+    // === Universal Carousel Script (handles multiple instances) ===
+    document.querySelectorAll(".about-carousel").forEach(carousel => {
+        const track = carousel.querySelector(".carousel-track");
+        const images = carousel.querySelectorAll(".carousel-track img");
+        const prevBtn = carousel.querySelector(".carousel-btn.prev");
+        const nextBtn = carousel.querySelector(".carousel-btn.next");
 
-        if (images.length === 0) return;
+        if (!track || images.length === 0) return;
 
         let index = 0;
         const total = images.length;
@@ -97,30 +97,22 @@ document.addEventListener("DOMContentLoaded", () => {
             updateCarousel();
         };
 
-        // ---- Interval management ----
         const startAutoSlide = () => {
             intervalId = setInterval(nextSlide, 5000);
         };
 
         const resetAutoSlide = () => {
             clearInterval(intervalId);
-            startAutoSlide(); // restart countdown
+            startAutoSlide();
         };
 
-        // ---- Button events ----
-        nextBtn.addEventListener("click", () => {
-            nextSlide();
-            resetAutoSlide(); // reset on manual click
-        });
+        // --- Button controls ---
+        if (nextBtn) nextBtn.addEventListener("click", () => { nextSlide(); resetAutoSlide(); });
+        if (prevBtn) prevBtn.addEventListener("click", () => { prevSlide(); resetAutoSlide(); });
 
-        prevBtn.addEventListener("click", () => {
-            prevSlide();
-            resetAutoSlide(); // reset on manual click
-        });
-
-        // ---- Start auto-slide ----
+        // --- Auto-start ---
         startAutoSlide();
-    }
+    });
 
     let scrollPosition = 0;
     // ---------- Brochure Modal ----------
