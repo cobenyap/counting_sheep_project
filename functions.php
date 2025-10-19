@@ -163,3 +163,68 @@ function mytheme_add_schema()
 <?php
 }
 add_action('wp_footer', 'mytheme_add_schema');
+
+
+add_action('customize_register', function ($wp_customize) {
+
+    $wp_customize->add_panel('csp_about_panel', [
+        'title'    => __('About Sections', 'counting-sheep'),
+        'priority' => 160,
+    ]);
+
+    for ($i = 1; $i <= 3; $i++) {
+        $section_id = "csp_about_{$i}";
+        $wp_customize->add_section($section_id, [
+            'title' => "About Section {$i}",
+            'panel' => 'csp_about_panel',
+        ]);
+
+        // Title
+        $wp_customize->add_setting("csp_about_{$i}_title", [
+            'default' => "About Section {$i} Title",
+            'sanitize_callback' => 'sanitize_text_field',
+        ]);
+        $wp_customize->add_control("csp_about_{$i}_title", [
+            'label' => __('Title', 'counting-sheep'),
+            'section' => $section_id,
+            'type' => 'text',
+        ]);
+
+        // Paragraph
+        $wp_customize->add_setting("csp_about_{$i}_text", [
+            'default' => "Default paragraph for section {$i}.",
+            'sanitize_callback' => 'wp_kses_post',
+        ]);
+        $wp_customize->add_control("csp_about_{$i}_text", [
+            'label' => __('Paragraph', 'counting-sheep'),
+            'section' => $section_id,
+            'type' => 'textarea',
+        ]);
+
+        // 3 images + captions
+        for ($j = 1; $j <= 3; $j++) {
+            $wp_customize->add_setting("csp_about_{$i}_img{$j}", [
+                'default' => '',
+                'sanitize_callback' => 'esc_url_raw',
+            ]);
+            $wp_customize->add_control(new WP_Customize_Image_Control(
+                $wp_customize,
+                "csp_about_{$i}_img{$j}",
+                [
+                    'label' => "Image {$j}",
+                    'section' => $section_id,
+                ]
+            ));
+
+            $wp_customize->add_setting("csp_about_{$i}_cap{$j}", [
+                'default' => "Caption {$j}",
+                'sanitize_callback' => 'sanitize_text_field',
+            ]);
+            $wp_customize->add_control("csp_about_{$i}_cap{$j}", [
+                'label' => "Caption {$j}",
+                'section' => $section_id,
+                'type' => 'text',
+            ]);
+        }
+    }
+});

@@ -4,7 +4,7 @@ Theme URI: https://countingsheepproject.com
 Author: Coben Yap
 Author URI: https://www.linkedin.com/in/cobenyap/
 Description: A custom theme built from scratch specifically for Counting Sheep Project
-Version: 1.5.1
+Version: 1.6.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: countingsheep
@@ -257,23 +257,25 @@ body {
     padding: 2rem 2rem;
     background: transparent;
     color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .about-container {
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
     gap: 3rem;
     max-width: 1200px;
     margin: 0 auto;
-    flex-wrap: wrap;
+    width: 100%;
 }
 
 .about-section.reverse .about-container {
-    flex-direction: row-reverse;
+    direction: rtl;
+}
+
+.about-section.reverse .about-text,
+.about-section.reverse .about-carousel {
+    direction: ltr;
 }
 
 /* Carousel container */
@@ -312,7 +314,8 @@ body {
 
 .carousel-item img {
     width: 100%;
-    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
     border-radius: 20px 20px 0 0;
     flex-shrink: 0;
 }
@@ -439,19 +442,61 @@ body {
 
 /* === Mobile Responsive === */
 @media (max-width: 768px) {
+
     .about-container {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 2rem;
+        direction: ltr;
     }
+
 
     .about-section.reverse .about-container {
-        flex-direction: column;
+        direction: ltr;
     }
 
-    .about-carousel,
+    .about-section.reverse .about-container,
+    .about-section.reverse .about-text,
+    .about-section.reverse .about-carousel {
+        direction: ltr !important;
+    }
+
+    .about-section.reverse .about-text {
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    .about-section {
+        overflow-x: hidden;
+    }
+
+    .about-text,
+    .about-carousel {
+        width: 100%;
+    }
+
+    .about-carousel {
+        max-width: 100%;
+    }
+
     .about-text {
         max-width: 100%;
-        flex: 1 1 100%;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1.5rem;
+        margin: 0 auto;
+    }
+
+    .about-section.reverse .about-text {
+        direction: ltr !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box;
+        padding: 1.5rem;
+        margin: 0 auto !important;
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        word-break: break-word;
     }
 
     .about-text h2 {
