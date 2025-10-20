@@ -84,6 +84,9 @@
                     <?php echo esc_html(get_theme_mod('csp_about_2_title', 'About Section 2 Title')); ?>
                 </h2>
                 <p><?php echo wp_kses_post(get_theme_mod('csp_about_2_text', 'Default paragraph for section 2.')); ?></p>
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('all-posts'))); ?>" class="about-text-btn">
+                    Discover Workshops
+                </a>
             </div>
         </div>
     </section>
@@ -119,6 +122,10 @@
                     <?php echo esc_html(get_theme_mod('csp_about_3_title', 'About Section 3 Title')); ?>
                 </h2>
                 <p><?php echo wp_kses_post(get_theme_mod('csp_about_3_text', 'Default paragraph for section 3.')); ?></p>
+                <a href="https://shopee.sg/countingsheepproject" target="_blank" rel="noopener noreferrer" class="about-text-btn">
+                    Shop
+                </a>
+
             </div>
         </div>
     </section>
