@@ -4,7 +4,7 @@ Theme URI: https://countingsheepproject.com
 Author: Coben Yap
 Author URI: https://www.linkedin.com/in/cobenyap/
 Description: A custom theme built from scratch specifically for Counting Sheep Project
-Version: 1.6.1
+Version: 1.7.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: countingsheep
@@ -1348,6 +1348,228 @@ body {
         width: 100px;
     }
 }
+
+/* === About Us Page === */
+.about-us-page {
+    color: #fff;
+    background: transparent;
+    padding-bottom: 4rem;
+}
+
+.about-hero {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+/* Ensure image fills the section */
+.about-hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.about-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 6px 20px var(--theme-weak-shadow);
+}
+
+/* Overlay title styling */
+.about-hero-title {
+    position: relative;
+    z-index: 2;
+    background: var(--theme-glass);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1.5rem 3rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px var(--theme-weak-shadow);
+    font-size: 3rem;
+    text-align: center;
+    text-shadow: 2px 2px 8px var(--theme-strong-shadow);
+    margin: 0;
+    /* remove any WP default spacing */
+    animation: fadeInHero 1s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeInHero {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Company Content */
+.about-company .container {
+    max-width: 1000px;
+    margin: 4rem auto;
+    background: var(--theme-glass-tinted);
+    border-radius: 20px;
+    padding: 2rem 3rem;
+    backdrop-filter: blur(12px);
+    line-height: 1.8;
+    box-shadow: 0 8px 25px var(--theme-weak-shadow);
+    font-size: 1.2rem;
+}
+
+/* CEO Section */
+.about-ceo .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 4rem auto;
+}
+
+.ceo-photo img {
+    width: 280px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px var(--theme-medium-shadow);
+}
+
+.ceo-bio {
+    max-width: 500px;
+    background: var(--theme-purple1);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px var(--theme-weak-shadow);
+}
+
+.ceo-bio blockquote {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--theme-accent);
+    margin: 1rem 0;
+}
+
+/* Timeline */
+.about-timeline {
+    position: relative;
+    text-align: center;
+    padding: 2rem;
+    background: var(--theme-glass-tinted);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 24px;
+    box-shadow: 0 8px 25px var(--theme-weak-shadow);
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+.about-timeline h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 4px var(--theme-strong-shadow);
+}
+
+.timeline {
+    position: relative;
+    margin: 0 auto;
+    max-width: 800px;
+    border-left: 3px solid var(--theme-accent);
+    padding-left: 2.5rem;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    text-align: left;
+    padding-left: 1rem;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -1.1rem;
+    top: 0.4rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--theme-accent);
+    box-shadow: 0 0 10px var(--theme-accent);
+}
+
+.timeline-item .year {
+    font-weight: bold;
+    color: var(--theme-accent);
+    font-size: 1.2rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .about-hero {
+        height: 80vh;
+    }
+
+    .about-hero-text {
+        max-width: 90%;
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+    }
+
+    .about-hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .about-ceo .container {
+        flex-direction: column;
+    }
+
+    .about-company .container {
+        margin: 4rem 2rem;
+    }
+
+    .ceo-photo img {
+        display: block;
+        width: calc(100% - 4rem);
+        margin: 0rem auto;
+        border-radius: 20px;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .ceo-bio {
+        margin: 1rem 2rem;
+    }
+
+    .about-timeline {
+        margin: 1rem 2rem;
+    }
+
+    .timeline {
+        padding-left: 1.5rem;
+    }
+
+    .timeline-item {
+        padding-left: 1.5rem;
+    }
+
+    .timeline-item::before {
+        width: 12px;
+        height: 12px;
+        left: -0.9rem;
+        top: 0.5rem;
+    }
+}
+
 
 /* === Easter Egg === */
 #easter-egg-popup {

@@ -3,7 +3,8 @@
 function mytheme_setup()
 {
     // Post thumbnails (featured images) support
-    add_theme_support('post-thumbnails', array('post'));
+    // page thumbnails support
+    add_theme_support('post-thumbnails', array('post', 'page'));
 
     // Title tag support (lets WP manage <title> for SEO)
     add_theme_support('title-tag');
