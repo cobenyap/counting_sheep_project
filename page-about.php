@@ -28,22 +28,61 @@ get_header();
         </div>
     </section>
 
-
-    <!-- === CEO Section (Optional ACF / Hardcoded fallback) === -->
-    <section class="about-ceo">
+    <!-- === Founders Section (Dynamic) === -->
+    <section class="about-founders">
         <div class="container">
-            <div class="ceo-photo">
-                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/ceo.jpg" alt="CEO of Counting Sheep Project" loading="lazy">
-            </div>
-            <div class="ceo-bio">
-                <h2>Message from Our Founder</h2>
-                <blockquote>
-                    “Making sleep support accessible, engaging, and practical for all.”
-                </blockquote>
-                <p><strong>Chime Ngawang</strong><br>Co-Founder & CEO, Counting Sheep Project</p>
-            </div>
+            <h2>Meet Our Founders</h2>
+
+            <?php
+            $founders = [];
+            for ($i = 1; $i <= 4; $i++) {
+                $name     = get_theme_mod("founder_{$i}_name");
+                $title    = get_theme_mod("founder_{$i}_title");
+                $quote    = get_theme_mod("founder_{$i}_quote");
+                $image    = get_theme_mod("founder_{$i}_image");
+                $linkedin = get_theme_mod("founder_{$i}_linkedin");
+
+                if ($name || $title || $quote || $image || $linkedin) {
+                    $founders[] = compact('name', 'title', 'quote', 'image', 'linkedin');
+                }
+            }
+
+            shuffle($founders); // Randomize order
+
+            if (!empty($founders)) :
+                foreach ($founders as $founder) :
+                    // Randomly assign reverse layout about 50% of the time
+                    $reverse = rand(0, 1) ? ' reverse' : '';
+            ?>
+                    <div class="founder-card<?php echo $reverse; ?>">
+
+                        <div class="founder-photo">
+                            <?php if (!empty($founder['image'])) : ?>
+                                <img src="<?php echo esc_url($founder['image']); ?>"
+                                    alt="<?php echo esc_attr($founder['name']); ?>" loading="lazy">
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="founder-info">
+                            <div class="founder-header">
+                                <h3><?php echo esc_html($founder['name']); ?></h3>
+                                <?php if (!empty($founder['linkedin'])) : ?>
+                                    <a class="founder-linkedin" href="<?php echo esc_url($founder['linkedin']); ?>" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile of <?php echo esc_attr($founder['name']); ?>">
+                                        <span class="dashicons dashicons-linkedin" aria-hidden="true"></span>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                            <p class="founder-title"><?php echo esc_html($founder['title']); ?></p>
+                            <blockquote><?php echo esc_html($founder['quote']); ?></blockquote>
+                        </div>
+
+                    </div>
+            <?php endforeach;
+            endif; ?>
         </div>
     </section>
+
+
 
 
     <!-- === Timeline Section (Milestones) === -->

@@ -229,3 +229,62 @@ add_action('customize_register', function ($wp_customize) {
         }
     }
 });
+
+// === Add Founders Section to Customizer ===
+// === Add Founders Section to Customizer ===
+function countingsheep_customize_register_founders($wp_customize) {
+    $wp_customize->add_section('founders_section', array(
+        'title'    => __('Founders Section', 'countingsheep'),
+        'priority' => 30,
+    ));
+
+    // Loop for 4 founders
+    for ($i = 1; $i <= 4; $i++) {
+        // Founder Image
+        $wp_customize->add_setting("founder_{$i}_image");
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                "founder_{$i}_image",
+                array(
+                    'label'    => __("Founder {$i} Photo", 'countingsheep'),
+                    'section'  => 'founders_section',
+                    'settings' => "founder_{$i}_image"
+                )
+            )
+        );
+
+        // Founder Name
+        $wp_customize->add_setting("founder_{$i}_name", array('default' => ''));
+        $wp_customize->add_control("founder_{$i}_name", array(
+            'label'   => __("Founder {$i} Name", 'countingsheep'),
+            'section' => 'founders_section',
+            'type'    => 'text',
+        ));
+
+        // Founder Title / Role
+        $wp_customize->add_setting("founder_{$i}_title", array('default' => ''));
+        $wp_customize->add_control("founder_{$i}_title", array(
+            'label'   => __("Founder {$i} Title/Role", 'countingsheep'),
+            'section' => 'founders_section',
+            'type'    => 'text',
+        ));
+
+        // Founder Quote
+        $wp_customize->add_setting("founder_{$i}_quote", array('default' => ''));
+        $wp_customize->add_control("founder_{$i}_quote", array(
+            'label'   => __("Founder {$i} Quote/Message", 'countingsheep'),
+            'section' => 'founders_section',
+            'type'    => 'textarea',
+        ));
+
+        // Founder LinkedIn
+        $wp_customize->add_setting("founder_{$i}_linkedin", array('default' => ''));
+        $wp_customize->add_control("founder_{$i}_linkedin", array(
+            'label'   => __("Founder {$i} LinkedIn URL", 'countingsheep'),
+            'section' => 'founders_section',
+            'type'    => 'url',
+        ));
+    }
+}
+add_action('customize_register', 'countingsheep_customize_register_founders');

@@ -4,7 +4,7 @@ Theme URI: https://countingsheepproject.com
 Author: Coben Yap
 Author URI: https://www.linkedin.com/in/cobenyap/
 Description: A custom theme built from scratch specifically for Counting Sheep Project
-Version: 1.7.0
+Version: 1.7.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: countingsheep
@@ -1045,9 +1045,7 @@ body {
 .footer-social {
     display: flex;
     align-items: center;
-    /* vertically centers everything in the flex row */
     gap: 0.75rem;
-    /* consistent spacing between items */
 }
 
 /* Social Icons - Glassmorphism style */
@@ -1410,10 +1408,6 @@ body {
     }
 }
 
-.about-hero-text h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
 
 /* Company Content */
 .about-company .container {
@@ -1428,36 +1422,122 @@ body {
     font-size: 1.2rem;
 }
 
-/* CEO Section */
-.about-ceo .container {
+.about-founders {
+    text-align: center;
+    color: #fff;
+    padding: 4rem 3rem;
+    background: var(--theme-purple1);
+    border-radius: 24px;
+    max-width: 1000px;
+    margin: 4rem auto;
+    box-shadow: 0 8px 25px var(--theme-weak-shadow);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.about-founders h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 4px var(--theme-strong-shadow);
+}
+
+.founder-card {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    max-width: 1000px;
-    margin: 4rem auto;
-}
-
-.ceo-photo img {
-    width: 280px;
+    margin-bottom: 3rem;
+    flex-wrap: nowrap;
+    background: var(--theme-glass);
     border-radius: 20px;
-    box-shadow: 0 6px 20px var(--theme-medium-shadow);
-}
-
-.ceo-bio {
-    max-width: 500px;
-    background: var(--theme-purple1);
-    padding: 2rem;
-    border-radius: 20px;
+    padding: 1.5rem;
     box-shadow: 0 6px 20px var(--theme-weak-shadow);
 }
 
-.ceo-bio blockquote {
-    font-size: 1.3rem;
-    font-style: italic;
+.founder-card.reverse {
+    flex-direction: row-reverse;
+}
+
+.founder-photo {
+    flex: 0 0 220px;
+}
+
+.founder-photo img {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px var(--theme-medium-shadow);
+    object-fit: cover;
+}
+
+.founder-info {
+    flex: 1;
+    min-width: 0;
+    /* prevents flex overflow issues */
+}
+
+.founder-info h3 {
+    font-size: 1.6rem;
     color: var(--theme-accent);
-    margin: 1rem 0;
+    margin-bottom: 0.3rem;
+}
+
+.founder-info .founder-title {
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.8rem;
+}
+
+.founder-info blockquote {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 1px 1px 3px var(--theme-strong-shadow);
+}
+
+.founder-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: center;
+    /* center horizontally; change to flex-start if you prefer left-aligned */
+    margin-bottom: 0.5rem;
+}
+
+.founder-header h3 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: var(--theme-accent);
+}
+
+.founder-linkedin {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--theme-glass-hover);
+    /* semi-transparent glass effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--theme-glass);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-left: 0.75rem;
+    cursor: pointer;
+    text-shadow: 1px 1px 3px var(--theme-strong-shadow);
+}
+
+/* Hover Effect */
+.founder-linkedin:hover {
+    background: var(--theme-glass);
+    color: var(--theme-accent);
+    /* gold accent */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--theme-weak-shadow);
 }
 
 /* Timeline */
@@ -1537,17 +1617,22 @@ body {
         margin: 4rem 2rem;
     }
 
-    .ceo-photo img {
-        display: block;
-        width: calc(100% - 4rem);
-        margin: 0rem auto;
-        border-radius: 20px;
-        height: auto;
-        object-fit: cover;
+    .founder-card,
+    .founder-card.reverse {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
-    .ceo-bio {
-        margin: 1rem 2rem;
+    .founder-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2rem 1.5rem;
+    }
+
+    .founder-info h3 {
+        font-size: 1.4rem;
     }
 
     .about-timeline {
