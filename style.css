@@ -4,7 +4,7 @@ Theme URI: https://countingsheepproject.com
 Author: Coben Yap
 Author URI: https://www.linkedin.com/in/cobenyap/
 Description: A custom theme built from scratch specifically for Counting Sheep Project
-Version: 1.7.1
+Version: 1.7.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: countingsheep
@@ -1348,11 +1348,98 @@ body {
 }
 
 /* === About Us Page === */
+
 .about-us-page {
-    color: #fff;
-    background: transparent;
-    padding-bottom: 4rem;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
 }
+
+.about-us-page section {
+    position: relative;
+    z-index: 1;
+}
+
+
+.about-us-page .floating-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+    mix-blend-mode: lighten;
+    opacity: 0.5;
+    z-index: 5;
+    mix-blend-mode: lighten;
+}
+
+.about-us-page .floating-particles span {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: var(--theme-accent);
+    border-radius: 50%;
+    filter: blur(6px);
+    opacity: 0.8;
+    animation: floaty 20s infinite ease-in-out;
+}
+
+.about-us-page .floating-particles span:nth-child(1) {
+    top: 40%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.about-us-page .floating-particles span:nth-child(2) {
+    top: 50%;
+    left: 75%;
+    animation-delay: 4s;
+}
+
+.about-us-page .floating-particles span:nth-child(3) {
+    top: 70%;
+    left: 60%;
+    animation-delay: 8s;
+}
+
+.about-us-page .floating-particles span:nth-child(4) {
+    top: 80%;
+    left: 85%;
+    animation-delay: 12s;
+    background: var(--theme-accent);
+}
+
+.about-us-page .floating-particles span:nth-child(5) {
+    top: 60%;
+    left: 35%;
+    animation-delay: 6s;
+    background: var(--theme-accent);
+}
+
+.about-us-page .floating-particles span:nth-child(6) {
+    top: 75%;
+    left: 15%;
+    animation-delay: 8s;
+    background: var(--theme-accent);
+}
+
+@keyframes floaty {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(30px, -60px);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translate(0, 0);
+        opacity: 0.5;
+    }
+}
+
 
 .about-hero {
     position: relative;
@@ -1420,6 +1507,7 @@ body {
     line-height: 1.8;
     box-shadow: 0 8px 25px var(--theme-weak-shadow);
     font-size: 1.2rem;
+    color:white;
 }
 
 .about-founders {
@@ -1558,6 +1646,7 @@ body {
     font-size: 2rem;
     margin-bottom: 2rem;
     text-shadow: 1px 1px 4px var(--theme-strong-shadow);
+    color:white;
 }
 
 .timeline {
@@ -1573,6 +1662,8 @@ body {
     margin-bottom: 2rem;
     text-align: left;
     padding-left: 1rem;
+    color:white;
+    font-weight: bold;
 }
 
 .timeline-item::before {
