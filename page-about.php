@@ -85,16 +85,14 @@ get_header();
         </div>
     </section>
 
+
+
+
     <!-- === Timeline Section (Milestones) === -->
     <section class="about-timeline" aria-labelledby="timeline-heading">
         <h2 id="timeline-heading">Our Journey</h2>
-        <div class="timeline-wrapper">
-
-            <button class="timeline-arrow timeline-arrow-left" aria-label="Scroll left">
-                &#10094;
-            </button>
-            <div class="timeline-horizontal">
-
+        <div class="timeline-container">
+            <div class="timeline">
                 <div class="timeline-item">
                     <span class="year">Oct 2023 – Apr 2024</span>
                     <p>Took part in the National Youth Council’s Youth Action Challenge (Season 5),
@@ -193,11 +191,6 @@ get_header();
                 </div>
 
             </div>
-
-            <button class="timeline-arrow timeline-arrow-right" aria-label="Scroll right">
-                &#10095;
-            </button>
-
         </div>
     </section>
 

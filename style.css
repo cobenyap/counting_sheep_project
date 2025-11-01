@@ -4,7 +4,7 @@ Theme URI: https://countingsheepproject.com
 Author: Coben Yap
 Author URI: https://www.linkedin.com/in/cobenyap/
 Description: A custom theme built from scratch specifically for Counting Sheep Project
-Version: 1.7.3
+Version: 1.7.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: countingsheep
@@ -1507,7 +1507,7 @@ body {
     line-height: 1.8;
     box-shadow: 0 8px 25px var(--theme-weak-shadow);
     font-size: 1.2rem;
-    color: white;
+    color:white;
 }
 
 .about-founders {
@@ -1640,103 +1640,48 @@ body {
     box-shadow: 0 8px 25px var(--theme-weak-shadow);
     max-width: 1000px;
     margin: 2rem auto;
-    color: white;
 }
 
-/* Wrapper positions the arrows relative to the scroll strip */
-.timeline-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-/* Arrow Buttons */
-.timeline-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--theme-glass);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--theme-glass-borders);
-    color: var(--theme-accent);
+.about-timeline h2 {
     font-size: 2rem;
-    padding: 0.4rem 0.9rem;
-    border-radius: 12px;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-    text-shadow: 0 0 6px var(--theme-strong-shadow);
-    box-shadow: 0 4px 14px var(--theme-weak-shadow);
-    opacity: 0.7;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 4px var(--theme-strong-shadow);
+    color:white;
 }
 
-.timeline-arrow:hover {
-    opacity: 1;
-    background: var(--theme-glass-hover);
-    transform: translateY(-50%) scale(1.05);
-}
-
-/* Left */
-.timeline-arrow-left {
-    left: -2.5rem;
-    /* adjust if needed */
-}
-
-/* Right */
-.timeline-arrow-right {
-    right: -2.5rem;
-}
-
-/* Timeline Container */
-.timeline-horizontal {
-    display: flex;
-    gap: 3rem;
-    overflow-x: auto;
-    padding: 2rem 1rem;
-    scroll-snap-type: x mandatory;
-    white-space: nowrap;
+.timeline {
     position: relative;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    margin: 0 auto;
+    max-width: 800px;
+    border-left: 3px solid var(--theme-accent);
+    padding-left: 2.5rem;
 }
 
-/* Hide scrollbar (nice clean look) */
-.timeline-horizontal::-webkit-scrollbar {
-    display: none;
-}
-
-/* Each milestone box */
 .timeline-item {
-    background: var(--theme-glass);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 20px;
-    padding: 1.5rem 2rem;
-    min-width: 260px;
-    box-shadow: 0 6px 18px var(--theme-weak-shadow);
     position: relative;
+    margin-bottom: 2rem;
     text-align: left;
-    scroll-snap-align: center;
-    white-space: normal;
-    color: white;
-    font-weight: 700;
+    padding-left: 1rem;
+    color:white;
+    font-weight: bold;
 }
 
-.timeline-item:hover {
-    transform: translateY(-30px) scale(1.02);
-    transition: 0.2s ease-in-out;
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -1.1rem;
+    top: 0.4rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--theme-accent);
+    box-shadow: 0 0 10px var(--theme-accent);
 }
 
-/* Year Label */
 .timeline-item .year {
-    display: block;
-    margin-bottom: 0.75rem;
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: bold;
     color: var(--theme-accent);
+    font-size: 1.2rem;
 }
 
 /* Mobile */
@@ -1785,28 +1730,19 @@ body {
         margin: 1rem 2rem;
     }
 
-    .timeline-wrapper {
-        flex-direction: column;
-    }
-
-    .timeline-horizontal {
-        display: block;
-        overflow-x: visible;
-        white-space: normal;
-        padding: 0;
-        scroll-snap-type: none;
+    .timeline {
+        padding-left: 1.5rem;
     }
 
     .timeline-item {
-        min-width: auto;
-        margin: 0 0 2rem 0;
-        width: calc(100% - 4rem);
-        scroll-snap-align: none;
+        padding-left: 1.5rem;
     }
 
-    /* Arrows should disappear on mobile*/
-    .timeline-arrow {
-        display: none;
+    .timeline-item::before {
+        width: 12px;
+        height: 12px;
+        left: -0.9rem;
+        top: 0.5rem;
     }
 }
 
