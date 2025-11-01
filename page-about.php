@@ -94,21 +94,102 @@ get_header();
         <div class="timeline-container">
             <div class="timeline">
                 <div class="timeline-item">
-                    <span class="year">2021</span>
-                    <p>Conceptualized Counting Sheep Project as a fun approach to better sleep.</p>
+                    <span class="year">Oct 2023 – Apr 2024</span>
+                    <p>Took part in the National Youth Council’s Youth Action Challenge (Season 5),
+                        emerging as an awardee under the Well-being & Resilience – Healthy Living category.
+                    </p>
                 </div>
+
                 <div class="timeline-item">
-                    <span class="year">2022</span>
-                    <p>Launched our first community workshop and mobile prototype.</p>
+                    <span class="year">Jul 2024</span>
+                    <p>Engaged over 50 participants at HPB’s Project Showcase and developed the first version
+                        of the Sleep Activity Booklet.
+                    </p>
                 </div>
+
                 <div class="timeline-item">
-                    <span class="year">2024</span>
-                    <p>Partnered with NYC, HYC, and SASW for youth well-being outreach.</p>
+                    <span class="year">Sep 2024</span>
+                    <p>Reached over 150 visitors through an interactive booth at Parking Day 2024 held at
+                        Tzu Chi Humanistic Youth Centre, in collaboration with Bold at Work.
+                        Introduced conversational games on sleep such as Sleep Tarot Cards and Build Your Own Sleep Sanctuary.
+                    </p>
                 </div>
+
                 <div class="timeline-item">
-                    <span class="year">2025</span>
-                    <p>Expanded digital tools and interactive sleep experiences nationwide.</p>
+                    <span class="year">Oct 2024</span>
+                    <p>
+                        Conducted a public workshop, “Building Better Sleep Habits”, attended by 30 participants,
+                        featuring Ms Jamie Ng, Associate Psychologist at a local Polyclinic CBT-I Clinic.
+                    </p>
                 </div>
+
+                <div class="timeline-item">
+                    <span class="year">Jan 2025</span>
+                    <p>
+                        Ran “Sleep Strategies for Social Workers” workshop with 24 professionals,
+                        featuring Ms Jamie Ng as guest speaker.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="year">Feb 2025</span>
+                    <p>
+                        Delivered a second “Sleep Strategies for Social Workers” workshop at SASW,
+                        attended by 15 professionals, featuring Dr June Lo, Cognitive Psychologist at NUS Medicine.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="year">Apr 2025</span>
+                    <p>
+                        Facilitated “Sleep Strategies for Young Families” workshop with 20 parents and
+                        children at Yishun FSC’s Kakihealth Community, using Lego play and conversational tools to
+                        promote family sleep health.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="year">May 2025</span>
+                    <p>
+                        Conducted a second Kakihealth Community workshop with 25 parents and children,
+                        using zine-making and guided dialogues on bedtime routines, nutrition, and screen time.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="year">Jul 2025</span>
+                    <p>
+                        Organised a public workshop, “Understanding Obstructive Sleep Apnea: What You Can Do and
+                        Where Experts Can Help”, attended by 18 participants, featuring Dr Tan Mei Hui, \
+                        Oral Surgeon at Mount Elizabeth Novena Specialist Centre.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="year">Sep 2025</span>
+                    <p>
+                        Engaged over 200 visitors at Parking Day 2025, held at Jurong East in collaboration with
+                        Bold at Work, introducing the Counting Sheep Sleep Assessment Quiz and other interactive tools.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="year">Oct 2025</span>
+                    <p>
+                        Reached over 250 participants at Singapore Children’s Society’s YFC Anniversary Carnival,
+                        featuring Sleep Myths & Facts Cards and other games for sleep education.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="year">Nov 2025</span>
+                    <p>
+                        Hosted “Sleeping Well in Stressful Times” workshop with 20 participants,
+                        featuring Dr Leonard Eng, Consultant Psychiatrist at SGH and the SingHealth
+                        Duke-NUS Sleep Centre, on managing sleep-related anxiety.
+                    </p>
+                </div>
+
             </div>
         </div>
     </section>
