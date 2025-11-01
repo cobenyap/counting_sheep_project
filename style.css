@@ -4,7 +4,7 @@ Theme URI: https://countingsheepproject.com
 Author: Coben Yap
 Author URI: https://www.linkedin.com/in/cobenyap/
 Description: A custom theme built from scratch specifically for Counting Sheep Project
-Version: 1.7.2
+Version: 1.7.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: countingsheep
@@ -26,6 +26,7 @@ Text Domain: countingsheep
     --theme-glass-hover: rgba(200, 200, 200, 0.3);
     --theme-glass-borders: rgba(255, 255, 255, 0.5);
     --theme-glass-tinted: rgba(125, 132, 178, 0.7);
+    --theme-glass-tinted-darker: rgba(125, 132, 178, 0.95);
     --theme-weak-shadow: rgba(0, 0, 0, 0.3);
     --theme-medium-shadow: rgba(0, 0, 0, 0.5);
     --theme-strong-shadow: rgba(0, 0, 0, 0.8);
@@ -594,7 +595,7 @@ body {
 }
 
 .post-card {
-    background: rgba(125, 132, 178, 0.7);
+    background: var(--theme-glass-tinted);
     backdrop-filter: blur(8px);
     border-radius: 12px;
     padding: 1rem;
@@ -1384,45 +1385,6 @@ body {
     animation: floaty 20s infinite ease-in-out;
 }
 
-.about-us-page .floating-particles span:nth-child(1) {
-    top: 40%;
-    left: 15%;
-    animation-delay: 0s;
-}
-
-.about-us-page .floating-particles span:nth-child(2) {
-    top: 50%;
-    left: 75%;
-    animation-delay: 4s;
-}
-
-.about-us-page .floating-particles span:nth-child(3) {
-    top: 70%;
-    left: 60%;
-    animation-delay: 8s;
-}
-
-.about-us-page .floating-particles span:nth-child(4) {
-    top: 80%;
-    left: 85%;
-    animation-delay: 12s;
-    background: var(--theme-accent);
-}
-
-.about-us-page .floating-particles span:nth-child(5) {
-    top: 60%;
-    left: 35%;
-    animation-delay: 6s;
-    background: var(--theme-accent);
-}
-
-.about-us-page .floating-particles span:nth-child(6) {
-    top: 75%;
-    left: 15%;
-    animation-delay: 8s;
-    background: var(--theme-accent);
-}
-
 @keyframes floaty {
     0% {
         transform: translate(0, 0);
@@ -1500,14 +1462,15 @@ body {
 .about-company .container {
     max-width: 1000px;
     margin: 4rem auto;
-    background: var(--theme-glass-tinted);
+    background: var(--theme-glass-tinted-darker);
     border-radius: 20px;
     padding: 2rem 3rem;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(8px);
     line-height: 1.8;
     box-shadow: 0 8px 25px var(--theme-weak-shadow);
+    text-shadow: 1px 1px 2px var(--theme-strong-shadow);
     font-size: 1.2rem;
-    color:white;
+    color: white;
 }
 
 .about-founders {
@@ -1633,11 +1596,12 @@ body {
     position: relative;
     text-align: center;
     padding: 2rem;
-    background: var(--theme-glass-tinted);
-    backdrop-filter: blur(12px);
+    background: var(--theme-glass-tinted-darker);
+    backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 24px;
     box-shadow: 0 8px 25px var(--theme-weak-shadow);
+    text-shadow: 1px 1px 1px var(--theme-strong-shadow);
     max-width: 1000px;
     margin: 2rem auto;
 }
@@ -1646,7 +1610,7 @@ body {
     font-size: 2rem;
     margin-bottom: 2rem;
     text-shadow: 1px 1px 4px var(--theme-strong-shadow);
-    color:white;
+    color: white;
 }
 
 .timeline {
@@ -1662,7 +1626,7 @@ body {
     margin-bottom: 2rem;
     text-align: left;
     padding-left: 1rem;
-    color:white;
+    color: white;
     font-weight: bold;
 }
 
@@ -1735,7 +1699,7 @@ body {
     }
 
     .timeline-item {
-        padding-left: 1.5rem;
+        padding-left: 0.8rem;
     }
 
     .timeline-item::before {

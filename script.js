@@ -315,6 +315,40 @@ document.addEventListener("DOMContentLoaded", () => {
         fetchPosts();
     }
 
+    // ---------- floating particles on about us page ----------
+    const floatingParticlesContainer = document.getElementById("floating-particles");
+    if (floatingParticlesContainer) {
+        // Generate a random number between 8 and 20
+        const PARTICLE_COUNT = Math.floor(Math.random() * (20 - 8 + 1)) + 8;
+
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+            const particle = document.createElement("span");
+
+            // Random size (10px–60px)
+            const size = Math.floor(Math.random() * 50) + 10;
+            particle.style.width = size + "px";
+            particle.style.height = size + "px";
+
+            // Random starting position (0%–100%)
+            particle.style.top = Math.random() * 100 + "%";
+            particle.style.left = Math.random() * 100 + "%";
+
+            // Random animation duration (8–20 seconds)
+            particle.style.setProperty("--duration", (8 + Math.random() * 12) + "s");
+
+
+            // Random color variation within brand accent family
+            const colors = [
+                "var(--theme-accent)",
+                "var(--theme-purple6)",
+                "rgba(255,255,255,0.8)"
+            ];
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+            floatingParticlesContainer.appendChild(particle);
+        }
+    }
+
     const searchIcon = document.getElementById("search-icon");
     // ---------- search icon ----------
     if (searchIcon && searchInput) {

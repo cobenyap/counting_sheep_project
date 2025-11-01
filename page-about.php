@@ -6,9 +6,8 @@ get_header();
 ?>
 
 <main class="about-us-page" role="main">
-    <div class="floating-particles" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
+    <div id="floating-particles" class="floating-particles" aria-hidden="true"></div>
+
 
     <!-- === Hero Banner (Featured Image / Big Picture) === -->
     <section class="about-hero">
