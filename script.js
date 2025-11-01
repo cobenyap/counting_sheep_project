@@ -326,6 +326,23 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // ---------- About us timeline ----------
+    const timelineHorizontal = document.querySelector(".timeline-horizontal");
+    const timelineLeftBtn = document.querySelector(".timeline-arrow-left");
+    const timelineRightBtn = document.querySelector(".timeline-arrow-right");
+    if (timelineHorizontal && timelineLeftBtn && timelineRightBtn) {
+        const scrollAmount = 550;
+
+        timelineLeftBtn?.addEventListener("click", () => {
+            timelineHorizontal.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+        });
+
+        timelineRightBtn?.addEventListener("click", () => {
+            timelineHorizontal.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        });
+    }
+
+
     // ---------- Easter Egg ----------
     const easterBtn = document.querySelector(".footer-left p"); // copyright trigger
     const easterPopup = document.getElementById("easter-egg-popup");
@@ -350,3 +367,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+
