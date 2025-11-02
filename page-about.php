@@ -159,7 +159,7 @@ get_header();
                     <span class="year">Jul 2025</span>
                     <p>
                         Organised a public workshop, “Understanding Obstructive Sleep Apnea: What You Can Do and
-                        Where Experts Can Help”, attended by 18 participants, featuring Dr Tan Mei Hui, \
+                        Where Experts Can Help”, attended by 18 participants, featuring Dr Tan Mei Hui,
                         Oral Surgeon at Mount Elizabeth Novena Specialist Centre.
                     </p>
                 </div>
