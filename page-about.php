@@ -90,108 +90,41 @@ get_header();
     <!-- === Timeline Section (Milestones) === -->
     <section class="about-timeline" aria-labelledby="timeline-heading">
         <h2 id="timeline-heading">Our Journey</h2>
+
         <div class="timeline-container">
             <div class="timeline">
-                <div class="timeline-item">
-                    <span class="year">Oct 2023 – Apr 2024</span>
-                    <p>Took part in the National Youth Council’s Youth Action Challenge (Season 5),
-                        emerging as an awardee under the Well-being & Resilience – Healthy Living category.
-                    </p>
-                </div>
 
-                <div class="timeline-item">
-                    <span class="year">Jul 2024</span>
-                    <p>Engaged over 50 participants at HPB’s Project Showcase and developed the first version
-                        of the Sleep Activity Booklet.
-                    </p>
-                </div>
+                <?php
+                $timeline_query = new WP_Query(array(
+                    'post_type'      => 'timeline',
+                    'posts_per_page' => -1,
+                    'orderby'        => 'meta_value',
+                    'meta_key'       => 'timeline_year',
+                    'order'          => 'ASC'
+                ));
 
-                <div class="timeline-item">
-                    <span class="year">Sep 2024</span>
-                    <p>Reached over 150 visitors through an interactive booth at Parking Day 2024 held at
-                        Tzu Chi Humanistic Youth Centre, in collaboration with Bold at Work.
-                        Introduced conversational games on sleep such as Sleep Tarot Cards and Build Your Own Sleep Sanctuary.
-                    </p>
-                </div>
+                if ($timeline_query->have_posts()) :
+                    while ($timeline_query->have_posts()) : $timeline_query->the_post();
 
-                <div class="timeline-item">
-                    <span class="year">Oct 2024</span>
-                    <p>
-                        Conducted a public workshop, “Building Better Sleep Habits”, attended by 30 participants,
-                        featuring Ms Jamie Ng, Associate Psychologist at a local Polyclinic CBT-I Clinic.
-                    </p>
-                </div>
+                        $year = get_field('timeline_year'); // ACF field
+                ?>
+                        <div class="timeline-item">
+                            <span class="year"><?php echo esc_html($year); ?></span>
+                            <p><?php echo wp_kses_post(get_the_content()); ?></p>
+                        </div>
 
-                <div class="timeline-item">
-                    <span class="year">Jan 2025</span>
-                    <p>
-                        Ran “Sleep Strategies for Social Workers” workshop with 24 professionals,
-                        featuring Ms Jamie Ng as guest speaker.
-                    </p>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="year">Feb 2025</span>
-                    <p>
-                        Delivered a second “Sleep Strategies for Social Workers” workshop at SASW,
-                        attended by 15 professionals, featuring Dr June Lo, Cognitive Psychologist at NUS Medicine.
-                    </p>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="year">Apr 2025</span>
-                    <p>
-                        Facilitated “Sleep Strategies for Young Families” workshop with 20 parents and
-                        children at Yishun FSC’s Kakihealth Community, using Lego play and conversational tools to
-                        promote family sleep health.
-                    </p>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="year">May 2025</span>
-                    <p>
-                        Conducted a second Kakihealth Community workshop with 25 parents and children,
-                        using zine-making and guided dialogues on bedtime routines, nutrition, and screen time.
-                    </p>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="year">Jul 2025</span>
-                    <p>
-                        Organised a public workshop, “Understanding Obstructive Sleep Apnea: What You Can Do and
-                        Where Experts Can Help”, attended by 18 participants, featuring Dr Tan Mei Hui,
-                        Oral Surgeon at Mount Elizabeth Novena Specialist Centre.
-                    </p>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="year">Sep 2025</span>
-                    <p>
-                        Engaged over 200 visitors at Parking Day 2025, held at Jurong East in collaboration with
-                        Bold at Work, introducing the Counting Sheep Sleep Assessment Quiz and other interactive tools.
-                    </p>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="year">Oct 2025</span>
-                    <p>
-                        Reached over 250 participants at Singapore Children’s Society’s YFC Anniversary Carnival,
-                        featuring Sleep Myths & Facts Cards and other games for sleep education.
-                    </p>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="year">Nov 2025</span>
-                    <p>
-                        Hosted “Sleeping Well in Stressful Times” workshop with 20 participants,
-                        featuring Dr Leonard Eng, Consultant Psychiatrist at SGH and the SingHealth
-                        Duke-NUS Sleep Centre, on managing sleep-related anxiety.
-                    </p>
-                </div>
+                <?php
+                    endwhile;
+                    wp_reset_postdata();
+                else :
+                    echo '<p>No timeline events found.</p>';
+                endif;
+                ?>
 
             </div>
         </div>
     </section>
+
 
 </main>
 

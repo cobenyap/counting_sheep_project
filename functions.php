@@ -288,3 +288,32 @@ function countingsheep_customize_register_founders($wp_customize) {
     }
 }
 add_action('customize_register', 'countingsheep_customize_register_founders');
+
+
+function create_timeline_post_type() {
+
+    $labels = array(
+        'name'               => 'Timeline',
+        'singular_name'      => 'Timeline Item',
+        'menu_name'          => 'Timeline',
+        'add_new'            => 'Add New Item',
+        'add_new_item'       => 'Add New Timeline Item',
+        'edit_item'          => 'Edit Timeline Item',
+        'new_item'           => 'New Timeline Item',
+        'view_item'          => 'View Timeline Item',
+        'search_items'       => 'Search Timeline Items',
+        'not_found'          => 'No items found',
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'show_in_rest'       => true, // Gutenberg + API
+        'supports'           => array('title', 'editor', 'thumbnail'),
+        'has_archive'        => false,
+        'menu_icon'          => 'dashicons-clock', // optional icon
+    );
+
+    register_post_type('timeline', $args);
+}
+add_action('init', 'create_timeline_post_type');
