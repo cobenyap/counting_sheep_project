@@ -42,7 +42,7 @@
         <h2 id="form-title">RSVP / Contact</h2>
 
         <div class="forminator-form-wrapper">
-            <?php echo do_shortcode('[forminator_form id="4316"]'); ?>
+            <?php echo do_shortcode('[forminator_form id="4325"]'); ?>
         </div>
 
         <p id="form-message"></p>
