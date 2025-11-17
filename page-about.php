@@ -109,7 +109,7 @@ get_header();
                         $year = get_field('timeline_year'); // ACF field
                 ?>
                         <div class="timeline-item">
-                            <span class="year"><?php echo esc_html($year); ?></span>
+                            <span class="year"><?php the_title(); ?></span>
                             <p><?php echo wp_kses_post(get_the_content()); ?></p>
                         </div>
 
