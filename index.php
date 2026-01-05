@@ -162,6 +162,9 @@
                         data-type="<?php echo esc_attr($type); ?>"
                         data-link="<?php echo esc_url($link); ?>"
                         data-brochure="<?php echo esc_url($brochure); ?>"
+                        data-content="<?php echo esc_attr(
+                                            apply_filters('the_content', get_post_field('post_content', get_the_ID()))
+                                        ); ?>"
                         itemscope itemtype="https://schema.org/BlogPosting">
 
                         <img src="<?php echo esc_url($thumbnail); ?>"

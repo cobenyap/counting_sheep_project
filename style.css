@@ -4,7 +4,7 @@ Theme URI: https://countingsheepproject.com
 Author: Coben Yap
 Author URI: https://www.linkedin.com/in/cobenyap/
 Description: A custom theme built from scratch specifically for Counting Sheep Project
-Version: 1.8.2
+Version: 1.9.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: countingsheep
@@ -659,7 +659,7 @@ body {
     background-color: var(--theme-strong-shadow);
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow: visible;
     overscroll-behavior: contain;
 }
 
@@ -699,6 +699,7 @@ body {
     flex: 1;
     padding: 1.5rem;
     overflow-y: auto;
+    max-height: 80vh;
     background: var(--theme-gradient-flip);
 }
 
@@ -715,6 +716,28 @@ body {
     line-height: 1.5;
     max-width: 100%;
     word-wrap: break-word;
+}
+
+/*for the text in body*/
+#modal-text p {
+    margin-bottom: 1rem;
+}
+
+#modal-text a {
+    color: #ffd966;
+    text-decoration: underline;
+}
+
+#modal-text ul,
+#modal-text ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#modal-text img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px; 
 }
 
 /* Close button */
@@ -741,12 +764,8 @@ body {
     .brochure-right {
         flex: unset;
         width: 100%;
-        max-height: 500px;
-    }
-
-    .brochure-right {
+        max-height: none;
         padding: 1rem;
-        /* reduce padding for smaller screens */
         box-sizing: border-box;
     }
 

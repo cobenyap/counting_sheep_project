@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.style.display = 'flex';
         modalImg.src = url;
         modalTitle.textContent = title;
-        modalText.textContent = text;
+        modalText.innerHTML = text;
     }
 
     // ---------- Contact / Dynamic Form Modal ----------
@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const card = document.querySelector(`.post-card[data-id='${postId}']`);
             if (card) {
                 const title = card.querySelector("h3")?.textContent || "";
-                const text = card.querySelector("p")?.textContent || "";
+                const text = card.dataset.content || "";
                 const brochure = card.dataset.brochure;
                 openBrochureModal(brochure, title, text);
             } else {
@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const link = this.dataset.link;
                 const brochure = this.dataset.brochure;
                 const title = this.querySelector("h3")?.textContent || "";
-                const text = this.querySelector("p")?.textContent || "";
+                const text = this.dataset.content || "";
 
                 if (type === "link" && link) {
                     window.open(link, "_blank");
