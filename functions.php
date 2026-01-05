@@ -120,6 +120,8 @@ function cs_ajax_filter_posts()
                 data-type="<?php echo esc_attr($type); ?>"
                 data-link="<?php echo esc_url($link); ?>"
                 data-brochure="<?php echo esc_url($brochure); ?>"
+                data-content="<?php echo esc_attr( apply_filters('the_content', get_post_field('post_content', get_the_ID())) ); ?>"
+
                 itemscope itemtype="https://schema.org/BlogPosting">
 
                 <img src="<?php echo esc_url($thumbnail); ?>"
@@ -232,7 +234,8 @@ add_action('customize_register', function ($wp_customize) {
 
 // === Add Founders Section to Customizer ===
 // === Add Founders Section to Customizer ===
-function countingsheep_customize_register_founders($wp_customize) {
+function countingsheep_customize_register_founders($wp_customize)
+{
     $wp_customize->add_section('founders_section', array(
         'title'    => __('Founders Section', 'countingsheep'),
         'priority' => 30,
@@ -290,7 +293,8 @@ function countingsheep_customize_register_founders($wp_customize) {
 add_action('customize_register', 'countingsheep_customize_register_founders');
 
 
-function create_timeline_post_type() {
+function create_timeline_post_type()
+{
 
     $labels = array(
         'name'               => 'Timeline',
