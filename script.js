@@ -206,6 +206,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const modalTitle = document.getElementById('modal-title');
         const modalText = document.getElementById('modal-text');
 
+        //hide arrow if only 1 image
+        const prevArrow = modal.querySelector('.brochure-nav-arrow.prev');
+        const nextArrow = modal.querySelector('.brochure-nav-arrow.next');
+
+        if (images.length <= 1) {
+            prevArrow.style.display = 'none';
+            nextArrow.style.display = 'none';
+        } else {
+            prevArrow.style.display = 'flex';
+            nextArrow.style.display = 'flex';
+        }
+
+
         if (!modal || !slider || !modalTitle || !modalText) return;
 
         currentBrochureImageIndex = 0;
