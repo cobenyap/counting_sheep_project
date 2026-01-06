@@ -303,11 +303,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const slides = document.querySelectorAll('.brochure-image-slider .slide');
         if (!slides.length) return;
 
-        slides.forEach(slide => slide.classList.remove('active'));
-
+        const prevIndex = currentBrochureImageIndex;
         currentBrochureImageIndex = (index + slides.length) % slides.length;
-        slides[currentBrochureImageIndex].classList.add('active');
+
+        slides.forEach((slide, i) => {
+            if (i === currentBrochureImageIndex) {
+                slide.classList.add('active'); // fade in
+            } else if (i === prevIndex) {
+                slide.classList.remove('active'); // fade out
+            } else {
+                slide.classList.remove('active');
+            }
+        });
     }
+
+
 
     //for mobile swiping
     let startX = 0;

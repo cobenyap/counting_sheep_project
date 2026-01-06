@@ -4,7 +4,7 @@ Theme URI: https://countingsheepproject.com
 Author: Coben Yap
 Author URI: https://www.linkedin.com/in/cobenyap/
 Description: A custom theme built from scratch specifically for Counting Sheep Project
-Version: 1.9.1
+Version: 2.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: countingsheep
@@ -687,13 +687,6 @@ body {
     justify-content: center;
 }
 
-.brochure-left img {
-    width: 100%;
-    height: auto;
-    max-height: 100%;
-    object-fit: contain;
-}
-
 /* Slider wrapper */
 .brochure-image-slider {
     width: 100%;
@@ -707,14 +700,19 @@ body {
 
 /* Slides */
 .brochure-image-slider img {
-    display: none;
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    inset: 0;
 }
 
 .brochure-image-slider img.active {
     display: block;
+    opacity: 1;
 }
 
 /* Navigation arrows */
@@ -722,7 +720,7 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.45);
+    background: var(--theme-glass);
     color: white;
     border: none;
     font-size: 28px;
@@ -738,7 +736,7 @@ body {
 }
 
 .brochure-nav-arrow:hover {
-    background: rgba(0, 0, 0, 0.65);
+    background: var(--theme-glass-hover);
 }
 
 .brochure-nav-arrow.prev {
@@ -817,7 +815,8 @@ body {
     }
 
     .brochure-left {
-        height: 45dvh;
+        height: 45dvh !important;
+        ;
         flex-shrink: 0;
         padding: 0;
         background: #000;
@@ -830,13 +829,14 @@ body {
     }
 
     .brochure-image-slider img {
+        display: block;
         position: absolute;
         inset: 0;
         width: 100%;
         height: 100%;
         object-fit: contain;
         opacity: 0;
-        transition: opacity 0.25s ease;
+        transition: opacity 0.3s ease-in-out;
     }
 
     .brochure-image-slider img.active {

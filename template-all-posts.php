@@ -47,14 +47,20 @@ get_header();
     </section>
 
     <!-- Brochure Modal -->
-    <div id="brochure-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div id="brochure-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <span class="close" aria-label="Close">&times;</span>
         <div class="modal-content brochure-modal">
             <div class="brochure-left">
-                <img id="modal-img" alt="Brochure">
-                <img class="slide active" src="https://via.placeholder.com/800x600" alt="Brochure image">
+                <button class="brochure-nav-arrow prev" aria-label="Previous image">&#10094;</button>
 
+                <div class="brochure-image-slider">
+                    <!-- Images will be injected here later -->
+                    <img class="slide active" src="" alt="Brochure image">
+                </div>
+
+                <button class="brochure-nav-arrow next" aria-label="Next image">&#10095;</button>
             </div>
+
             <div class="brochure-right">
                 <h3 id="modal-title"></h3>
                 <p id="modal-text"></p>
