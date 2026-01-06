@@ -52,6 +52,8 @@ get_header();
         <div class="modal-content brochure-modal">
             <div class="brochure-left">
                 <img id="modal-img" alt="Brochure">
+                <img class="slide active" src="https://via.placeholder.com/800x600" alt="Brochure image">
+
             </div>
             <div class="brochure-right">
                 <h3 id="modal-title"></h3>

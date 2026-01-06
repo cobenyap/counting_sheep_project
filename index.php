@@ -150,7 +150,16 @@
             if ($latest_posts->have_posts()) :
                 while ($latest_posts->have_posts()) : $latest_posts->the_post();
                     $type     = get_post_meta(get_the_ID(), 'post_type', true);
-                    $brochure = wp_get_attachment_url(get_post_meta(get_the_ID(), 'brochure_image', true));
+                    $brochure_images = [];
+                    for ($i = 1; $i <= 10; $i++) {
+                        $image_id = get_post_meta(get_the_ID(), "brochure_image_$i", true);
+                        if ($image_id) {
+                            $url = wp_get_attachment_url($image_id);
+                            if ($url) {
+                                $brochure_images[] = $url;
+                            }
+                        }
+                    }
                     $link     = get_post_meta(get_the_ID(), 'post_link', true);
                     $thumbnail = has_post_thumbnail()
                         ? get_the_post_thumbnail_url(get_the_ID(), 'medium')
@@ -161,7 +170,7 @@
                         data-slug="<?php echo sanitize_title(get_the_title()); ?>"
                         data-type="<?php echo esc_attr($type); ?>"
                         data-link="<?php echo esc_url($link); ?>"
-                        data-brochure="<?php echo esc_url($brochure); ?>"
+                        data-brochure-images='<?php echo esc_attr(json_encode($brochure_images)); ?>'
                         data-content="<?php echo esc_attr(
                                             apply_filters('the_content', get_post_field('post_content', get_the_ID()))
                                         ); ?>"
@@ -237,12 +246,20 @@
     </section>
 
     <!-- Brochure Modal -->
-    <div id="brochure-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div id="brochure-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <span class="close" aria-label="Close">&times;</span>
         <div class="modal-content brochure-modal">
             <div class="brochure-left">
-                <img id="modal-img" alt="Brochure image" loading="lazy">
+                <button class="brochure-nav-arrow prev" aria-label="Previous image">&#10094;</button>
+
+                <div class="brochure-image-slider">
+                    <!-- Images will be injected here later -->
+                    <img class="slide active" src="" alt="Brochure image">
+                </div>
+
+                <button class="brochure-nav-arrow next" aria-label="Next image">&#10095;</button>
             </div>
+
             <div class="brochure-right">
                 <h3 id="modal-title"></h3>
                 <p id="modal-text"></p>

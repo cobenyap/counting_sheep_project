@@ -115,30 +115,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     let scrollPosition = 0;
-    // ---------- Brochure Modal ----------
-    function openBrochureModal(url, title = "", text = "") {
-        const modal = document.getElementById('brochure-modal');
-        const modalImg = document.getElementById('modal-img');
-        const modalTitle = document.getElementById('modal-title');
-        const modalText = document.getElementById('modal-text');
-
-        if (!modal || !modalImg || !modalTitle || !modalText) return;
-
-        // Save current scroll position
-        scrollPosition = window.scrollY;
-
-        // Freeze the background but keep visual position
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${scrollPosition}px`;
-        document.body.style.left = '0';
-        document.body.style.right = '0';
-
-        modal.style.display = 'flex';
-        modalImg.src = url;
-        modalTitle.textContent = title;
-        modalText.innerHTML = text;
-    }
-
     // ---------- Contact / Dynamic Form Modal ----------
     const formModal = document.getElementById('dynamic-form-modal');
     const formCloseBtn = formModal?.querySelector('.close');
@@ -197,6 +173,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+
+    let currentBrochureImageIndex = 0;
+    let totalSlides = 0;
     // ---------- Post card load for sharing ----------
     function checkBrochureHash() {
         const hash = window.location.hash;
@@ -209,8 +188,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (card) {
                 const title = card.querySelector("h3")?.textContent || "";
                 const text = card.dataset.content || "";
-                const brochure = card.dataset.brochure;
-                openBrochureModal(brochure, title, text);
+                const images = JSON.parse(card.dataset.brochureImages || "[]");
+                openBrochureModal(images, title, text);
             } else {
                 // If posts aren't loaded yet, try again after 300ms
                 setTimeout(checkBrochureHash, 300);
@@ -220,6 +199,38 @@ document.addEventListener("DOMContentLoaded", () => {
     checkBrochureHash();
 
 
+    // ---------- Brochure Modal ----------
+    function openBrochureModal(images = [], title = "", text = "") {
+        const modal = document.getElementById('brochure-modal');
+        const slider = modal.querySelector('.brochure-image-slider');
+        const modalTitle = document.getElementById('modal-title');
+        const modalText = document.getElementById('modal-text');
+
+        if (!modal || !slider || !modalTitle || !modalText) return;
+
+        currentBrochureImageIndex = 0;
+        totalSlides = images.length;
+
+        // Save current scroll position
+        scrollPosition = window.scrollY;
+
+        // Freeze the background but keep visual position
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+
+        slider.innerHTML = images.map((src, index) => `
+            <img class="slide ${index === 0 ? 'active' : ''}" src="${src}" alt="Brochure image ${index + 1}">
+        `).join('');
+
+
+        modal.style.display = 'flex';
+        modalTitle.textContent = title;
+        modalText.innerHTML = text;
+    }
+
+
     // ---------- Post card clicks ----------
     function attachPostCardListeners() {
         const postCards = document.querySelectorAll(".post-card");
@@ -227,16 +238,16 @@ document.addEventListener("DOMContentLoaded", () => {
             card.addEventListener("click", function () {
                 const type = this.dataset.type;
                 const link = this.dataset.link;
-                const brochure = this.dataset.brochure;
+                const images = JSON.parse(this.dataset.brochureImages || "[]");
                 const title = this.querySelector("h3")?.textContent || "";
                 const text = this.dataset.content || "";
 
                 if (type === "link" && link) {
                     window.open(link, "_blank");
-                } else if (type === "brochure" && brochure) {
+                } else if (type === "brochure" && images) {
                     const postId = this.getAttribute("data-id");
                     const slug = this.dataset.slug;
-                    openBrochureModal(brochure, title, text);
+                    openBrochureModal(images, title, text);
 
                     // Update URL (slug + ID for uniqueness)
                     const encodedSlug = encodeURIComponent(slug);
@@ -275,6 +286,52 @@ document.addEventListener("DOMContentLoaded", () => {
             history.pushState({}, "", window.location.pathname); // clear hash
         });
     }
+
+
+    // ---------- image navigation ----------
+    document.querySelector('.brochure-nav-arrow.prev')?.addEventListener('click', e => {
+        e.stopPropagation();
+        showSlide(currentBrochureImageIndex - 1);
+    });
+
+    document.querySelector('.brochure-nav-arrow.next')?.addEventListener('click', e => {
+        e.stopPropagation();
+        showSlide(currentBrochureImageIndex + 1);
+    });
+
+    function showSlide(index) {
+        const slides = document.querySelectorAll('.brochure-image-slider .slide');
+        if (!slides.length) return;
+
+        slides.forEach(slide => slide.classList.remove('active'));
+
+        currentBrochureImageIndex = (index + slides.length) % slides.length;
+        slides[currentBrochureImageIndex].classList.add('active');
+    }
+
+    //for mobile swiping
+    let startX = 0;
+    const slider = document.querySelector('.brochure-image-slider');
+    if (slider) {
+        slider.addEventListener('touchstart', e => {
+            startX = e.touches[0].clientX;
+        });
+
+        slider.addEventListener('touchend', e => {
+            const endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    showSlide(currentBrochureImageIndex + 1); // swipe left
+                } else {
+                    showSlide(currentBrochureImageIndex - 1); // swipe right
+                }
+            }
+        });
+    }
+
+
 
     const searchInput = document.getElementById("search-posts");
     const dateSelect = document.getElementById("filter-date");
