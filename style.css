@@ -751,6 +751,7 @@ body {
 /* Right content */
 .brochure-right {
     flex: 1;
+    min-width: 300px; 
     padding: 1.5rem;
     overflow-y: auto;
     max-height: 80vh;
